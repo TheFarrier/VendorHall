@@ -1,14 +1,14 @@
 const db = require("../models")
 
-module.exports ={
+module.exports = {
   findAllStores: function(req,res) {
     db.Store
       .find(req.query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findStoreByUserId: function(req, res) {
-    db.Book
+  findStore: function(req, res) {
+    db.Store
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
