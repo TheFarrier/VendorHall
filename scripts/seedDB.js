@@ -8,53 +8,59 @@ mongoose.connect(
 
 const storeSeed = [
   {
-    user: "5ee97cb874b5755e048e32cf",
-    store: [
+    user: "5eea6d7dde1afbd16c227b50",
+    products: [
       {
         name: "A Cat",
         description: "This is a nice cat",
         price: 25,
-        quantity: 1
+        quantity: 1,
+        image:"https://i.imgur.com/0LINzxs.jpg"
       },
       {
         name: "A Dog",
         description: "This is a large dog",
         price: 30,
-        quantity: 1
+        quantity: 1,
+        image:"https://i.imgur.com/Whf10Sd.png"
       },
     ]
   },
   {
-    user: "5ee97cb874b5755e048e32d0",
-    store: [
+    user: "5eea6d7dde1afbd16c227b51",
+    products: [
       {
         name: "A shirt",
         description: "This is a quirky shirt",
         price: 15,
-        quantity: 10
+        quantity: 10,
+        image:"https://i.imgur.com/05kFTos.jpg"
       },
       {
         name: "Jeans",
         description: "Regular blue Jeans",
         price: 20,
-        quantity: 10
+        quantity: 10,
+        image:"https://i.imgur.com/uJmJty2.jpg"
       },
     ]
   },
   {
-    user: "5ee97cb874b5755e048e32d1",
-    store: [
+    user: "5eea6d7dde1afbd16c227b52",
+    products: [
       {
         name: "Mustang",
         description: "Vroom fast car",
         price: 300,
-        quantity: 2
+        quantity: 2,
+        image:"https://i.imgur.com/VKq4ME2.jpg"
       },
       {
         name: "Camaro",
         description: "Better than a Mustang",
         price: 500,
-        quantity: 1
+        quantity: 1,
+        image:"https://i.imgur.com/ciOmTnu.jpg"
       },
     ]
   }
@@ -64,17 +70,20 @@ const userSeed = [
   {
     username: "ToddHoward",
     email: "TDogg@gmail.com",
-    password:"PasswordTodd"
+    password:"PasswordTodd",
+    avatarUrl:"https://i.imgur.com/O9Wmyek.jpg"
   },
   {
     username: "Greggie123",
     email: "Gregorym@yahoo.com",
-    password:"PasswordGreg"
+    password:"PasswordGreg",
+    avatarUrl:""
   },
   {
     username: "Carboy6000",
     email: "CamaroMan@gmail.com",
-    password:"PasswordCar"
+    password:"PasswordCar",
+    avatarUrl:"https://i.imgur.com/rnSyGHP.jpg"
   }
 ];
 
