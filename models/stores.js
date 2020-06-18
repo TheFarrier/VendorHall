@@ -6,12 +6,13 @@ const productSchema = new Schema({
   name: {type: String},
   description: {type: String},
   price: {type:Number},
-  quantity:{type:Number}
+  quantity:{type:Number},
+  image:{type:String}
 })
 
 const storeSchema = new Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: User}, //reference to user ID from user table
-  store:[productSchema]
+  products:[productSchema]
 });
 
 const Store = mongoose.model("Store",storeSchema)
