@@ -1,7 +1,7 @@
 // src/App.js
 
 import React from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar.js";
 import { useAuth0 } from "./react-auth0-spa";
 // New - import the React Router components, and the Profile page component
 import { Router, Route, Switch } from "react-router-dom";
@@ -10,6 +10,10 @@ import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/Profile";
 import history from "./utils/history";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Search from "./components/Search";
+// import Sidebar from "./components/Sidebar";
+
 
 
 function App() {
@@ -21,9 +25,12 @@ function App() {
   return (
     <div className="App">
       {/* Don't forget to include the history module */}
+      <Header />
       <Router history={history}>
         <header>
+          {/* <Sidebar /> */}
           <NavBar />
+          <Search />
         </header>
         <Switch>
           <Route path="/" exact />

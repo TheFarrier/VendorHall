@@ -1,0 +1,15 @@
+.section {
+    background: #89858a;
+    padding: 20px;
+    font-family: Georgia;
+  }
+  
+  .section h2 {
+    text-align: center;
+    font-family: Georgia;
+  }
+  .i {
+    align-content: right;
+    /* Adjust these values accordingly */
+    
+  }
