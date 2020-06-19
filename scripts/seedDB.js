@@ -6,84 +6,73 @@ mongoose.connect(
   "mongodb://localhost/vendorhall" //name database
 );
 
-const storeSeed = [
+const productSeed = [
   {
-    user: "5eea6d7dde1afbd16c227b50",
-    products: [
-      {
-        name: "A Cat",
-        description: "This is a nice cat",
-        price: 25,
-        quantity: 1,
-        image:"https://i.imgur.com/0LINzxs.jpg"
-      },
-      {
-        name: "A Dog",
-        description: "This is a large dog",
-        price: 30,
-        quantity: 1,
-        image:"https://i.imgur.com/Whf10Sd.png"
-      },
-    ]
+    name: "A Cat",
+    description: "This is a nice cat",
+    price: 25,
+    quantity: 1,
+    image:"https://i.imgur.com/0LINzxs.jpg",
+    user:"5eebe09df2d6e5df709e8e64"
   },
   {
-    user: "5eea6d7dde1afbd16c227b51",
-    products: [
-      {
-        name: "A shirt",
-        description: "This is a quirky shirt",
-        price: 15,
-        quantity: 10,
-        image:"https://i.imgur.com/05kFTos.jpg"
-      },
-      {
-        name: "Jeans",
-        description: "Regular blue Jeans",
-        price: 20,
-        quantity: 10,
-        image:"https://i.imgur.com/uJmJty2.jpg"
-      },
-    ]
+    name: "A Dog",
+    description: "This is a large dog",
+    price: 30,
+    quantity: 1,
+    image:"https://i.imgur.com/Whf10Sd.png",
+    user:"5eebe09df2d6e5df709e8e64"
   },
   {
-    user: "5eea6d7dde1afbd16c227b52",
-    products: [
-      {
-        name: "Mustang",
-        description: "Vroom fast car",
-        price: 300,
-        quantity: 2,
-        image:"https://i.imgur.com/VKq4ME2.jpg"
-      },
-      {
-        name: "Camaro",
-        description: "Better than a Mustang",
-        price: 500,
-        quantity: 1,
-        image:"https://i.imgur.com/ciOmTnu.jpg"
-      },
-    ]
-  }
+    name: "A shirt",
+    description: "This is a quirky shirt",
+    price: 15,
+    quantity: 10,
+    image:"https://i.imgur.com/05kFTos.jpg",
+    user:"5eebe09df2d6e5df709e8e66"
+  },
+  {
+    name: "Jeans",
+    description: "Regular blue Jeans",
+    price: 20,
+    quantity: 10,
+    image:"https://i.imgur.com/uJmJty2.jpg",
+    user:"5eebe09df2d6e5df709e8e66"
+  },
+
+  {
+    name: "Mustang",
+    description: "Vroom fast car",
+    price: 300,
+    quantity: 2,
+    image:"https://i.imgur.com/VKq4ME2.jpg",
+    user:"5eebe09df2d6e5df709e8e65"
+  },
+  {
+    name: "Camaro",
+    description: "Better than a Mustang",
+    price: 500,
+    quantity: 1,
+    image:"https://i.imgur.com/ciOmTnu.jpg",
+    user:"5eebe09df2d6e5df709e8e65"
+  },
 ];
 
 const userSeed = [
   {
-    username: "ToddHoward",
-    email: "TDogg@gmail.com",
-    password:"PasswordTodd",
-    avatarUrl:"https://i.imgur.com/O9Wmyek.jpg"
+    username: "yours@example.com",
+    auth_id: "auth0|5eeb6410129c430bebd1cfc2",
+    products:[]
   },
   {
-    username: "Greggie123",
-    email: "Gregorym@yahoo.com",
-    password:"PasswordGreg",
-    avatarUrl:""
+    username: "Nate Farrey",
+    auth_id: "auth0|5eeacbcc357c150b6c22ea4a",
+    products:[]
   },
   {
-    username: "Carboy6000",
-    email: "CamaroMan@gmail.com",
-    password:"PasswordCar",
-    avatarUrl:"https://i.imgur.com/rnSyGHP.jpg"
+    username: "sylviadiane69@gmail.com",
+    auth_id: "auth0|5eeac76f357c150b6c22ea2f",
+    products:[]
   }
 ];
 
@@ -99,9 +88,9 @@ const userSeed = [
 //     process.exit(1);
 //   });
 
-  db.Store
+db.Products
   .remove({})
-  .then(() => db.Store.collection.insertMany(storeSeed))
+  .then(() => db.Products.collection.insertMany(productSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

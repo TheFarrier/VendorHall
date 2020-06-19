@@ -1,9 +1,16 @@
-const mongoose = require("mongoose");
+const User = require("./users");
+const mongoose = require("mongoose").set('debug',true);
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
-  name: { type: String, required: true }
-});
+  name: {type: String},
+  description: {type: String},
+  price: {type:Number},
+  quantity:{type:Number},
+  image:{type:String},
+  user:{type:String}
+})
+
 
 const Product = mongoose.model("Product",productSchema)
 

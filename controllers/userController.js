@@ -9,7 +9,7 @@ module.exports ={
   },
   findUser: function(req, res) {
     db.User
-      .findOne({username:req.params.username, password:req.params.password})
+      .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
