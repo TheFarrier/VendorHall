@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
+import ProductCard from "../components/ProductCard";
 
 function StorePage() {
   // Initialize books as an empty array
-    const [stores, setStores] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
-      API.getStores()
-        .then(res => setStores(res.data))
+      API.getAllProducts()
+        .then(res => setProducts(res.data))
         .catch(err => console.log(err));
     }, [])
 
@@ -15,11 +16,9 @@ function StorePage() {
       <div>
         <p>All Stores</p>
         <div>
-          {stores.map(store =>(
-            <div key={store._id}>
-              <p>{store.user}</p>
-            </div>
-          ))}
+          {products.map((product, index) =>
+            <ProductCard p={product} key={index}/>
+          )}
         </div>
       </div>
     );
