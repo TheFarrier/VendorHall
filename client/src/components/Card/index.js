@@ -1,20 +1,28 @@
 import React from "react";
 
-function Card() {
-    return (
+// Exporting the Container, Row, and Col components from this file
 
-    <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-         </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-    </Card>
-    )
-};
+// This Container component allows us to use a bootstrap container without worrying about class names
+export function Container({ fluid, children }) {
+  return <div className={`container${fluid ? "-fluid" : ""}`}>{children}</div>;
+}
 
-export default Card;
+// This Row component lets us use a bootstrap row without having to think about class names
+export function Row({ fluid, children }) {
+  return <div className={`row${fluid ? "-fluid" : ""}`}>{children}</div>;
+}
+
+// This Col component lets us size bootstrap columns with less syntax
+// e.g. <Col size="md-12"> instead of <div className="col-md-12">
+export function Col({ size, children }) {
+  return (
+    <div
+      className={size
+        .split(" ")
+        .map(size => "col-" + size)
+        .join(" ")}
+    >
+      {children}
+    </div>
+  );
+}

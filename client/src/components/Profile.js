@@ -2,7 +2,7 @@
 
 import React, { Fragment } from "react";
 import { useAuth0 } from "../react-auth0-spa";
-// import Card from "./components/Card";
+// import { Col, Row, Container } from "../components/Card";
 
 
 const Profile = () => {

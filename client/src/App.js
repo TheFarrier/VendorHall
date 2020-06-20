@@ -1,7 +1,7 @@
 // src/App.js
 
 import React from "react";
-import NavBar from "./components/NavBar/NavBar.js";
+import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
 // New - import the React Router components, and the Profile page component
 import { Router, Route, Switch } from "react-router-dom";
@@ -12,7 +12,8 @@ import history from "./utils/history";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Search from "./components/Search";
-// import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar";
+
 
 
 
@@ -28,9 +29,9 @@ function App() {
       <Header />
       <Router history={history}>
         <header>
-          {/* <Sidebar /> */}
           <NavBar />
           <Search />
+          <Sidebar />
         </header>
         <Switch>
           <Route path="/" exact />
