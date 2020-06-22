@@ -23,12 +23,27 @@ function SearchForm() {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <a className="nav-link" href="#">
-                Vendor <span className="sr-only">(current)</span>
+                Clothing <span className="sr-only">(current)</span>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Products
+                Jewelry 
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Art
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Entertainment
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Used
               </a>
             </li>
             <li className="nav-item dropdown">
