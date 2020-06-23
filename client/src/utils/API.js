@@ -28,7 +28,7 @@ export default {
   },
   // Gets all stores
   getProduct: function(id) {
-    return axios.get("/api/products" + id);
+    return axios.get("/api/products/" + id);
   },
   // Updates stores with given id
   updateProduct: function(id, updateData) {
