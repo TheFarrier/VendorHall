@@ -9,6 +9,10 @@ import Profile from "./components/Profile";
 import history from "./utils/history";
 import Footer from "./components/Footer";
 import UploadProducts from "./pages/UploadProduct"
+import Header from "./components/Header";
+import Search from "./components/Search";
+// import Sidebar from "./components/Sidebar";
+
 
 
 function App() {
@@ -20,9 +24,12 @@ function App() {
   return (
     <div className="App">
       {/* Don't forget to include the history module */}
+      <Header />
       <Router history={history}>
         <header>
+          {/* <Sidebar /> */}
           <NavBar />
+          <Search />
         </header>
         <Switch>
           <Route path="/" exact />

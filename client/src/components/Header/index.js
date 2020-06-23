@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Header.css";
+import "./style.css";
 
 const styles = {
   headerStyle: {
@@ -15,7 +15,7 @@ const styles = {
 function Header() {
   return (
     <header style={styles.headerStyle} className="header">
-      <h1 style={styles.headingStyle}>Online Store 2020</h1>
+      <h1 style={styles.headingStyle}><i class="fa fa-shopping-bag" aria-hidden="true"></i> VendorHall <i class="fa fa-shopping-bag" aria-hidden="true"></i></h1>
     </header>
   );
 }
