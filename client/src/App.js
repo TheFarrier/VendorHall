@@ -11,8 +11,8 @@ import Footer from "./components/Footer";
 import UploadProducts from "./pages/UploadProduct"
 import Header from "./components/Header";
 import Search from "./components/Search";
-// import Sidebar from "./components/Sidebar";
-
+import Sidebar from "./components/Sidebar"
+import Productcard from "./components/Card";
 
 
 function App() {
@@ -27,9 +27,9 @@ function App() {
       <Header />
       <Router history={history}>
         <header>
-          {/* <Sidebar /> */}
           <NavBar />
           <Search />
+          <Sidebar />
         </header>
         <Switch>
           <Route path="/" exact />
@@ -46,6 +46,7 @@ function App() {
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
       </Router>
+      <Productcard />
       <Footer />
     </div>
   );
