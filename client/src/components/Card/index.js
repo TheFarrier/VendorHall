@@ -1,96 +1,75 @@
 import React from "react";
-import { Card, CardGroup } from "react-bootstrap";
+import { Card, CardGroup, Col, Row } from "react-bootstrap";
 
-function Productcard() {
+
+function Productcard(props) {
+  var products = [Card.Img, Card.Body, Card.Title, Card.Text, Card.Footer].join("Card");
+  // document.getElementsByClassName("demo").innerHTML = card.map(Productcard)
+
   return (
 
-    <CardGroup>
-      <section className="col-md-6 xs-12">
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
-      </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
-      </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
-      </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-      </section>
+    <Row>
+      
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter Products
+                </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
 
-      <section className="col-md-6 xs-12">
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
+      <Col sm={3}>
+        <Card className="mx-3">
+          <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>Card title</Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural lead-in to
               additional content. This content is a little bit longer.
-      </Card.Text>
+            </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            <small className="text-muted">Product Description</small>
           </Card.Footer>
         </Card>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
+      </Col>
+      <Col sm={3}>
+        <Card className="mx-3">
+          <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>Card title</Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural lead-in to
               additional content. This content is a little bit longer.
-      </Card.Text>
+            </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            <small className="text-muted">Product Description</small>
           </Card.Footer>
         </Card>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
+      </Col>
+      <Col sm={3}>
+        <Card className="mx-3">
+          <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>Card title</Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural lead-in to
               additional content. This content is a little bit longer.
-      </Card.Text>
+            </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            <small className="text-muted">Product Description</small>
           </Card.Footer>
-        </Card>      
-      </section>
-    </CardGroup>
+        </Card>
+      </Col>
+    </Row>
 
   );
 }
 
 export default Productcard;
+

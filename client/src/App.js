@@ -12,8 +12,9 @@ import history from "./utils/history";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Search from "./components/Search";
-import Sidebar from "./components/Sidebar"
+// import Sidebar from "./components/Sidebar";
 import Productcard from "./components/Card";
+// import Inputtag from "./components/Input";
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         <header>
           <NavBar />
           <Search />
-          <Sidebar />
+          {/* <Sidebar /> */}
         </header>
         <Switch>
           <Route path="/" exact />
@@ -38,6 +39,7 @@ function App() {
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
       </Router>
+      {/* <Inputtag /> */}
       <Productcard />
       <Footer />
     </div>
