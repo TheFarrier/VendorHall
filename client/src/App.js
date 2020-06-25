@@ -32,7 +32,7 @@ function App() {
           <Sidebar />
         </header>
         <Switch>
-          <Route path="/" exact />
+          <Route path="/" exact component={AllStores}/>
           <Route path="/profile" component={Profile} />
           <Route exact path="/products/user/:id">
             <StorePage />
@@ -43,10 +43,10 @@ function App() {
           <Route exact path="/products">
             <AllStores />
           </Route>
+          {/* <Route exact path="/products/:id" component={Product} /> */}
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
       </Router>
-      <Productcard />
       <Footer />
     </div>
   );
