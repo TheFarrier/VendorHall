@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import ProductCard from "../components/ProductCard";
+import  Card  from "../components/Card";
+import { Row } from "react-bootstrap";
 
 function StorePage() {
   // Initialize books as an empty array
@@ -12,14 +14,15 @@ function StorePage() {
         .catch(err => console.log(err));
     }, [])
 
+
     return (
       <div>
         <p>All Stores</p>
-        <div>
+        <Row>
           {products.map((product, index) =>
-            <ProductCard p={product} key={index}/>
+            <Card p={product} i={index}/>
           )}
-        </div>
+        </Row>
       </div>
     );
   }
