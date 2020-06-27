@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
+//The RB css import code
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -19,6 +22,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Breadcrumbs/>
     </div>
   );
 }
