@@ -1,12 +1,11 @@
-
-import React from "react";
+import React from 'react';
 
 function SearchForm() {
   return (
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">
-          <i class="fa fa-tag" aria-hidden="true"></i>
+          <i className="fa fa-tag" aria-hidden="true" />
         </a>
         <button
           className="navbar-toggler"
@@ -28,7 +27,7 @@ function SearchForm() {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Jewelry 
+                Jewelry
               </a>
             </li>
             <li className="nav-item">
@@ -84,7 +83,7 @@ function SearchForm() {
             </button>
           </form>
         </div>
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <i className="fa fa-shopping-cart" aria-hidden="true" />
       </nav>
     </div>
   );
