@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Productcard from "./components/Card";
-// import Vendor from "./components/Vendor";
+import Vendor from "./components/Vendor";
 
 
 
@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       {/* Don't forget to include the history module */}
       <Header />
-      {/* <Vendor /> */}
+      <Vendor />
       <Router history={history}>
         <header>
         
