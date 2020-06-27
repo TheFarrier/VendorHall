@@ -7,7 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import Favorite from '@material-ui/icons/Favorite';import Checkbox from '@material-ui/core/Checkbox';
+import Favorite from '@material-ui/icons/Favorite'; import Checkbox from '@material-ui/core/Checkbox';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 const styles = {
@@ -58,12 +58,11 @@ class CheckboxLabels extends React.Component {
           }
           label="Price: High - Low"
         />
-        <FormControlLabel control={<Checkbox value="checkedC" />} label="Uncontrolled" />
-        <FormControlLabel disabled control={<Checkbox value="checkedD" />} label="Disabled" />
+        <FormControlLabel control={<Checkbox value="checkedC" />} label="Clothing" />
+        <FormControlLabel control={<Checkbox value="checkedD" />} label="Color" />
         <FormControlLabel
-          disabled
           control={<Checkbox checked value="checkedE" />}
-          label="Ages: 0 - 5"
+          label="Blue"
         />
         <FormControlLabel
           control={
@@ -74,7 +73,7 @@ class CheckboxLabels extends React.Component {
               indeterminate
             />
           }
-          label="Ages: 6 - 12"
+          label="Red"
         />
         <FormControlLabel
           control={
@@ -88,14 +87,9 @@ class CheckboxLabels extends React.Component {
               }}
             />
           }
-          label="Ages: 12 - 19"
+          label="Green"
         />
-        <FormControlLabel
-          control={
-            <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} value="checkedH" />
-          }
-          label="Custom icon"
-        />
+
         <FormControlLabel
           control={
             <Checkbox
@@ -104,7 +98,14 @@ class CheckboxLabels extends React.Component {
               value="checkedI"
             />
           }
-          label="Ages: 21+"
+          label="Black"
+        />
+
+        <FormControlLabel
+          control={
+            <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} value="checkedH" />
+          }
+          label="favorite"
         />
       </FormGroup>
     );
