@@ -12,7 +12,10 @@ import UploadProducts from './pages/UploadProduct';
 import Header from './components/Header';
 import Search from './components/Search';
 import Sidebar from './components/Sidebar';
-
+import './App.css';
+import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
+//The RB css import code
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const { loading } = useAuth0();
@@ -27,9 +30,9 @@ function App() {
       {/* <Vendor /> */}
       <Router history={history}>
         <header>
-        
           <NavBar />
-          <Search />        
+          <Search />
+          <Breadcrumbs/>        
         </header>
         <Switch>
           <Route path="/" exact component={AllStores} />

@@ -10,9 +10,7 @@ function Productcard({ p, i }) {
         <Card.Img variant="top" src={p.image} className="card-image" />
         <Card.Body>
           <Card.Title>
-            {p.name}
-            {' '}
-            ${p.price}
+            {p.name} ${p.price}
           </Card.Title>
           <Card.Text>
             {p.description}
