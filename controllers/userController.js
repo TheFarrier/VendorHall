@@ -9,13 +9,14 @@ module.exports ={
   },
   findUser: function(req, res) {
     db.User
-      .findById(req.params.id)
+      .findOne({auth_id:req.params.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   updateUser: function(req, res) {
+    console.log(req.body)
     db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.body.vendor }, {$push:{products: req.body._id}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -25,5 +26,16 @@ module.exports ={
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+  findUserProducts: function(req, res) {
+    console.log(req.params.id)
+    db.User
+      .findOne({_id: req.params.id})
+      .populate('products')
+      .then((dbModel) => {
+        console.log(dbModel)
+        res.json(dbModel)
+      })
+      .catch(err => res.status(422).json(err));
+  },
 };

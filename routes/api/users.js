@@ -1,17 +1,19 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
-const productController = require("../../controllers/productController")
 
-// Matches with "/api/products"
+// Matches with "/api/user"
 router.route("/")
-  .post(userController.registerUser);
+  .post(userController.registerUser)
+  .put(userController.updateUser)
 
-// Matches with "/api/products/:id"
+// Matches with "/api/user/:id"
 router
   .route("/:id")
   .get(userController.findUser)
-  .put(userController.updateUser)
-  .delete(userController.removeUser);
+  .delete(userController.removeUser)
+
+router.route("/products/:id")
+  .get(userController.findUserProducts)
 
 
 

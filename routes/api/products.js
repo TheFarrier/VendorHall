@@ -12,8 +12,5 @@ router.route("/:id")
   .put(productController.updateProduct)
   .delete(productController.removeProduct);
 
-router.route("/user/:id")
-  .get(productController.findUserProducts)
-
-
+  
 module.exports = router;

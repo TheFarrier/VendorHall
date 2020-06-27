@@ -1,4 +1,3 @@
-const User = require("./users");
 const mongoose = require("mongoose").set('debug',true);
 const Schema = mongoose.Schema;
 
@@ -8,7 +7,7 @@ const productSchema = new Schema({
   price: {type:Number},
   quantity:{type:Number},
   image:{type:String},
-  user:{type:String}
+  vendor:{type:Schema.Types.ObjectId, ref:"User"}
 })
 
 
