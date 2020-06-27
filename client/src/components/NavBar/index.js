@@ -14,11 +14,12 @@ const NavBar = () => {
         <span>
           <Link to="/">  Home</Link>&nbsp;
           <Link to="/profile">  Profile</Link>  
+          <Link to="/Vendor">  Become a Vendor</Link>
         </span>
       )}
 
       {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>Log in</button>
+        <button onClick={() => loginWithRedirect({})}>  Log in</button>
       )}
 
       {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}

@@ -3,6 +3,7 @@
 import React from "react";
 import NavBar from "./components/NavBar";
 import { useAuth0 } from "./react-auth0-spa";
+import 'bootstrap/dist/css/bootstrap.min.css';
 // New - import the React Router components, and the Profile page component
 import { Router, Route, Switch } from "react-router-dom";
 // NEW - import the PrivateRoute component
@@ -12,9 +13,9 @@ import history from "./utils/history";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Search from "./components/Search";
-// import Sidebar from "./components/Sidebar";
 import Productcard from "./components/Card";
-// import Inputtag from "./components/Input";
+// import Vendor from "./components/Vendor";
+
 
 
 function App() {
@@ -27,19 +28,19 @@ function App() {
     <div className="App">
       {/* Don't forget to include the history module */}
       <Header />
+      {/* <Vendor /> */}
       <Router history={history}>
         <header>
+        
           <NavBar />
-          <Search />
-          {/* <Sidebar /> */}
+          <Search />        
         </header>
         <Switch>
           <Route path="/" exact />
           <Route path="/profile" component={Profile} />
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
-      </Router>
-      {/* <Inputtag /> */}
+      </Router>     
       <Productcard />
       <Footer />
     </div>
