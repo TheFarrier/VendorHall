@@ -12,7 +12,7 @@ import UploadProducts from './pages/UploadProduct';
 import Header from './components/Header';
 import Search from './components/Search';
 import Sidebar from './components/Sidebar';
-import Productcard from './components/Card';
+
 
 function App() {
   const { loading } = useAuth0();
@@ -24,11 +24,12 @@ function App() {
     <div className="App">
       {/* Don't forget to include the history module */}
       <Header />
+      {/* <Vendor /> */}
       <Router history={history}>
         <header>
+        
           <NavBar />
-          <Search />
-          <Sidebar />
+          <Search />        
         </header>
         <Switch>
           <Route path="/" exact component={AllStores} />
