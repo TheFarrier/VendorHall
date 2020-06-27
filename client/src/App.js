@@ -1,22 +1,21 @@
-// src/App.js
-
-import React from "react";
-import NavBar from "./components/NavBar";
-import { useAuth0 } from "./react-auth0-spa";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import StorePage from './pages/StorePage';
+import AllStores from './pages/AllStores';
+import NavBar from './components/NavBar';
+import { useAuth0 } from './react-auth0-spa';
+import PrivateRoute from './components/PrivateRoute';
+import Profile from './components/Profile';
+import history from './utils/history';
+import Footer from './components/Footer';
+import UploadProducts from './pages/UploadProduct';
+import Header from './components/Header';
+import Search from './components/Search';
+import Sidebar from './components/Sidebar';
+import './App.css';
+import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
+//The RB css import code
 import 'bootstrap/dist/css/bootstrap.min.css';
-// New - import the React Router components, and the Profile page component
-import { Router, Route, Switch } from "react-router-dom";
-// NEW - import the PrivateRoute component
-import PrivateRoute from "./components/PrivateRoute";
-import Profile from "./components/Profile";
-import history from "./utils/history";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Search from "./components/Search";
-import Productcard from "./components/Card";
-import Vendor from "./components/Vendor";
-
-
 
 function App() {
   const { loading } = useAuth0();
@@ -31,24 +30,29 @@ function App() {
       <Vendor />
       <Router history={history}>
         <header>
-        
           <NavBar />
-          <Search />        
+          <Search />
+          <Breadcrumbs/>        
         </header>
         <Switch>
-          <Route path="/" exact />
+          <Route path="/" exact component={AllStores} />
           <Route path="/profile" component={Profile} />
+          <Route exact path="/user/products/:id">
+            <StorePage />
+          </Route>
+          <Route exact path="/upload">
+            <UploadProducts />
+          </Route>
+          <Route exact path="/products">
+            <AllStores />
+          </Route>
+          {/* <Route exact path="/products/:id" component={Product} /> */}
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
-      </Router>     
-      <Productcard />
+      </Router>
       <Footer />
     </div>
   );
 }
 
 export default App;
-
-
-
-

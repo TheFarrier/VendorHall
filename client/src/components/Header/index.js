@@ -1,13 +1,13 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import './style.css';
 
 const styles = {
   headerStyle: {
-    background: "lightblue"
+    background: 'lightblue',
   },
   headingStyle: {
-    fontSize: 100
-  }
+    fontSize: 100,
+  },
 };
 
 // We use JSX curly braces to evaluate the style object
@@ -15,7 +15,13 @@ const styles = {
 function Header() {
   return (
     <header style={styles.headerStyle} className="header">
-      <h1 style={styles.headingStyle}><i class="fa fa-shopping-bag" aria-hidden="true"></i> VendorHall <i class="fa fa-shopping-bag" aria-hidden="true"></i></h1>
+      <h1 style={styles.headingStyle}>
+        <i className="fa fa-shopping-bag" aria-hidden="true" />
+        {' '}
+        VendorHall
+        {' '}
+        <i className="fa fa-shopping-bag" aria-hidden="true" />
+      </h1>
     </header>
   );
 }

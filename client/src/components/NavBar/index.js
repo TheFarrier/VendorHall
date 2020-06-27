@@ -1,8 +1,8 @@
 // src/components/NavBar.js
-import React from "react";
-import { useAuth0 } from "../../react-auth0-spa";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth0 } from '../../react-auth0-spa';
 // NEW - import the Link component
-import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -28,5 +28,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar
-
+export default NavBar;
