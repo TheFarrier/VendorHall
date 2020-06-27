@@ -1,0 +1,15 @@
+.footer {
+  min-height: 100px;
+  position: relative;
+  text-align: center;
+  font-family: Georgia;
+}
+
+.footer span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: rgb(195, 233, 230);
+}

@@ -1,0 +1,8 @@
+.card-image {
+  object-position: center; /* Center the image within the element */
+  width: 100%;
+  height: 300px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  overflow: hidden;
+}
