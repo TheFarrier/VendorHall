@@ -11,11 +11,13 @@ import Footer from './components/Footer';
 import UploadProducts from './pages/UploadProduct';
 import Header from './components/Header';
 import Search from './components/Search';
-import Sidebar from './components/Sidebar';
+import Vendor from './components/Vendor/index';
 import './App.css';
 import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 //The RB css import code
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   const { loading } = useAuth0();
@@ -27,16 +29,17 @@ function App() {
     <div className="App">
       {/* Don't forget to include the history module */}
       <Header />
-      {/* <Vendor /> */}
+
       <Router history={history}>
         <header>
           <NavBar />
           <Search />
-          <Breadcrumbs/>        
+          <Breadcrumbs />
         </header>
         <Switch>
           <Route path="/" exact component={AllStores} />
           <Route path="/profile" component={Profile} />
+          <Route path="/vendor" component={Vendor} />
           <Route exact path="/user/products/:id">
             <StorePage />
           </Route>

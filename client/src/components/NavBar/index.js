@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '../../react-auth0-spa';
+
 // NEW - import the Link component
 
 const NavBar = () => {
@@ -14,7 +15,7 @@ const NavBar = () => {
         <span>
           <Link to="/">  Home</Link>&nbsp;
           <Link to="/profile">  Profile</Link>  
-          <Link to="/Vendor">  Become a Vendor</Link>
+          <Link to="/vendor">  Become a Vendor</Link>
         </span>
       )}
 
