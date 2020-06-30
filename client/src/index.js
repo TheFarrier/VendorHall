@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Auth0Provider } from './react-auth0-spa';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements }  from '@stripe/react-stripe-js'
 import config from './auth_config.json';
 import history from './utils/history';
 
+const stripePromise = loadStripe('')
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = (appState) => {
@@ -23,7 +26,9 @@ ReactDOM.render(
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
   >
-    <App />
+    <Elements stripe={stripePromise}>
+      <App />
+    </Elements>
   </Auth0Provider>,
   document.getElementById('root'),
 );
