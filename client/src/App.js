@@ -2,8 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import StorePage from './pages/StorePage';
 import AllStores from './pages/AllStores';
+import Checkout from './pages/Checkout';
 import NavBar from './components/NavBar';
 import { useAuth0 } from './react-auth0-spa';
+
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Profile';
 import history from './utils/history';
@@ -12,6 +14,7 @@ import UploadProducts from './pages/UploadProduct';
 import Header from './components/Header';
 import Search from './components/Search';
 import Sidebar from './components/Sidebar';
+
 import './App.css';
 import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 //The RB css import code
@@ -37,6 +40,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={AllStores} />
           <Route path="/profile" component={Profile} />
+          <Route path="/checkout" component={Checkout} />
           <Route exact path="/user/products/:id">
             <StorePage />
           </Route>

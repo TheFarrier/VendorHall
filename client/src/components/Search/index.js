@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import {Button, Dropdown} from "react-bootstrap";
+import ShoppingCart from "../ShoppingCart"
 
 function SearchForm() {
   return (
@@ -84,7 +85,8 @@ function SearchForm() {
             </button>
           </form>
         </div>
-        <i className="fa fa-shopping-cart" aria-hidden="true" />
+        <ShoppingCart />
+
       </nav>
     </div>
   );
