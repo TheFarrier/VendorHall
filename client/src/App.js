@@ -17,6 +17,8 @@ import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 //The RB css import code
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from './components/Sidebar';
+import Product from './components/ProductCard';
+
 
 
 
