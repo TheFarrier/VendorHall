@@ -18,7 +18,7 @@ function Vendor() {
 
   return (
     
-    <Form noValidate validated={validated} onSubmit={handleSubmit} border="primary" style={{ width: '50rem' }}>
+    <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ width: '50rem' }}>
       <Form.Row>
         <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom01">
           <Form.Control

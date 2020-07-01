@@ -1,6 +1,7 @@
 import React from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import DropDown from '../Filter/dropdown';
+import './style.css'
 
 class Breadcrumbs extends React.Component {
     render() {
