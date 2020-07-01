@@ -58,13 +58,13 @@ class CheckboxLabels extends React.Component {
           }
           label="Price: High - Low"
         />
-        <FormControlLabel control={<Checkbox value="checkedC" />} label="Uncontrolled" />
+        {/* <FormControlLabel control={<Checkbox value="checkedC" />} label="Uncontrolled" />
         <FormControlLabel disabled control={<Checkbox value="checkedD" />} label="Disabled" />
         <FormControlLabel
           disabled
           control={<Checkbox checked value="checkedE" />}
           label="Ages: 0 - 5"
-        />
+        /> */}
         <FormControlLabel
           control={
             <Checkbox
@@ -74,7 +74,7 @@ class CheckboxLabels extends React.Component {
               indeterminate
             />
           }
-          label="Ages: 6 - 12"
+          label="Blue"
         />
         <FormControlLabel
           control={
@@ -88,13 +88,13 @@ class CheckboxLabels extends React.Component {
               }}
             />
           }
-          label="Ages: 12 - 19"
+          label="Red"
         />
         <FormControlLabel
           control={
             <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} value="checkedH" />
           }
-          label="Custom icon"
+          label="Favorites"
         />
         <FormControlLabel
           control={
@@ -104,7 +104,7 @@ class CheckboxLabels extends React.Component {
               value="checkedI"
             />
           }
-          label="Ages: 21+"
+          label="Most Popular"
         />
       </FormGroup>
     );
