@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, InputGroup, Button, Col } from "react-bootstrap";
+import './style.css';
 
 function Vendor() {
 
@@ -16,9 +17,10 @@ function Vendor() {
   };
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+    
+    <Form noValidate validated={validated} onSubmit={handleSubmit} border="primary" style={{ width: '50rem' }}>
       <Form.Row>
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom01">
           <Form.Control
             required
             type="text"
@@ -27,7 +29,7 @@ function Vendor() {
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
+        <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom02">
           <Form.Control
             required
             type="text"
@@ -38,7 +40,7 @@ function Vendor() {
         </Form.Group>
       </Form.Row>.
       <Form.Row>
-        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+        <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustomUsername">
           <InputGroup>
             <InputGroup.Prepend>
               <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -54,7 +56,7 @@ function Vendor() {
               </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
+        <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom02">
           <Form.Control
             required
             type="text"
@@ -65,7 +67,7 @@ function Vendor() {
         </Form.Group>
       </Form.Row>.
       <Form.Row>
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
+        <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom03">
           <Form.Control type="text" placeholder="City" required />
           <Form.Control.Feedback type="invalid">
             Please provide a valid city.
@@ -73,7 +75,7 @@ function Vendor() {
         </Form.Group>
       </Form.Row>
       <Form.Row>
-        <Form.Group as={Col} md="3" controlId="validationCustom04">
+        <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom04">
           <Form.Control type="text" placeholder="State" required />
           <Form.Control.Feedback type="invalid">
             Please provide a valid state.
@@ -81,24 +83,24 @@ function Vendor() {
         </Form.Group>
       </Form.Row>
       <Form.Row>
-      <Form.Group as={Col} md="3" controlId="validationCustom05">
+        <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom05">
           <Form.Control type="text" placeholder="Zip" required />
           <Form.Control.Feedback type="invalid">
             Please provide a valid zip.
           </Form.Control.Feedback>
-      </Form.Group>
+        </Form.Group>
       </Form.Row>
       <Form.Row>
-      <Form.Group>
-        <Form.Check
-          required
-          label="Agree to terms and conditions"
-          feedback="You must agree before submitting."
-        />
-      </Form.Group>
+        <Form.Group as={Col} md={{ span: 4, offset: 3 }}>
+          <Form.Check
+            required
+            label="Agree to terms and conditions"
+            feedback="You must agree before submitting."
+          />
+        </Form.Group>
       </Form.Row>
-      <Form.Row>
-      <Button type="submit">Submit form</Button>
+      <Form.Row >
+        <Button type="submit" as={Col} md={{ span: 4, offset: 3 }}>Submit form</Button>
       </Form.Row>
     </Form>
   );
@@ -106,3 +108,5 @@ function Vendor() {
 
 
 export default Vendor;
+
+

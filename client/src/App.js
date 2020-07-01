@@ -16,6 +16,7 @@ import './App.css';
 import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 //The RB css import code
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Sidebar from './components/Sidebar';
 
 
 
@@ -29,13 +30,13 @@ function App() {
     <div className="App">
       {/* Don't forget to include the history module */}
       <Header />
-
       <Router history={history}>
         <header>
           <NavBar />
           <Search />
           <Breadcrumbs />
         </header>
+        <Sidebar />
         <Switch>
           <Route path="/" exact component={AllStores} />
           <Route path="/profile" component={Profile} />
