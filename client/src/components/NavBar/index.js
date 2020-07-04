@@ -24,7 +24,11 @@ const NavBar = () => {
     <div>
       <header style={styles.headerStyle} className="header">
         <h1 style={styles.headingStyle}>
-          VendorHall
+          <i className="fa fa-shopping-bag" aria-hidden="true" />
+          {' '}
+            VendorHall
+          {' '}
+          <i className="fa fa-shopping-bag" aria-hidden="true" />
         </h1>
       </header>
 
