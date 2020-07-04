@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '../../react-auth0-spa';
 import ShoppingCart from "../ShoppingCart"
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Dropdown } from "react-bootstrap";
 
 // NEW - import the Link component
 
@@ -21,23 +21,34 @@ const NavBar = () => {
 
   return (
 
-    
-
-    // We use JSX curly braces to evaluate the style object
     <div>
-      
       <header style={styles.headerStyle} className="header">
         <h1 style={styles.headingStyle}>
-            VendorHall
+          VendorHall
         </h1>
       </header>
 
-
-      {/* NEW - add a link to the home and profile pages */}
       {isAuthenticated && (
         <span>
-          <Link to="/">  Home</Link>&nbsp;
-          <Link to="/profile">  Profile</Link><br />
+          <Dropdown>
+            <Dropdown.Toggle variant="light" id="dropdown-basic">
+              <i class="fas fa-user fa-2x"></i>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">
+                <Link to="/">Home</Link>&nbsp;
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-2">
+                <Link to="/profile">  Profile</Link>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-3">
+                <Link to="/vendor">Become a Vendor</Link>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-4">
+                {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </span>
       )}
 
@@ -64,12 +75,9 @@ const NavBar = () => {
               <NavDropdown.Item href="#action/3.5">Daily Featured Vendor</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Link to="/vendor">Become a Vendor</Link>
-
-          {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}
 
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <FormControl type="text" placeholder="Search for products" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
           </Form>
         </Navbar.Collapse>
