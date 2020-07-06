@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import './style.css';
+import DB from '../../utils/IndexedDB'
+
+const addtocart = (product) => {
+  console.log("cart button pressed!")
+  DB.addToCart(product)
+};
 
 function Productcard({ p, i }) {
   return (
@@ -18,6 +24,7 @@ function Productcard({ p, i }) {
         </Card.Body>
         <Card.Footer>
           <Link to={`/user/products/${p.vendor}`}>Store Page</Link>
+          <Button onClick={()=>addtocart(p)}>Add to Cart</Button>
         </Card.Footer>
       </Card>
     </section>
