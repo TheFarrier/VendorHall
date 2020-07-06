@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css';
+import API from '../../utils/API'
+import DB from '../../utils/IndexedDB'
+import {loadStripe} from '@stripe/stripe-js';
 
-function Checkout({ p, i }) {
 
-var stripe = Stripe('pk_test_51GyhD6JxF3l7n3KAqKpEW0eD1002yA5Su9f1LOMx5MR4V0c0oUEP8Lo5e2uFBgOktYuJSNfrRIlUhPRb1lMcTEtp00C8W3Zb9e');
+function Checkout() {
 
-stripe.redirectToCheckout({
-  // Make the id field from the Checkout Session creation API response
-  // available to this file, so you can provide it as parameter here
-  // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
-  sessionId: '{{CHECKOUT_SESSION_ID}}'
-}).then(function (result) {
-  // If `redirectToCheckout` fails due to a browser or network
-  // error, display the localized error message to your customer
-  // using `result.error.message`.
-});
+  const [sessionId, setID] = useState('')
+  const stripePromise = loadStripe('pk_test_51GyhD6JxF3l7n3KAqKpEW0eD1002yA5Su9f1LOMx5MR4V0c0oUEP8Lo5e2uFBgOktYuJSNfrRIlUhPRb1lMcTEtp00C8W3Zb9e');
 
+  useEffect(() => {
+    DB.openDB()
+    API.createSession()
+      .then((res) => {
+        setID(res.data.session_id)
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const checkout = async (event) => {
+    const stripe = await stripePromise
+    await console.log(sessionId)
+    const { error } = await stripe.redirectToCheckout({sessionId});
+  }
+  
   return (
-    <Button>Checkout</Button>
+    <Button onClick={checkout}>Checkout</Button>
   );
 }
 
