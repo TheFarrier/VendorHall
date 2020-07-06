@@ -1,10 +1,22 @@
 import React from 'react';
-import { ButtonGroup, Dropdown, Form, Col } from "react-bootstrap";
+import { ButtonGroup, Dropdown, Form, Col, Container } from "react-bootstrap";
 import "./style.css";
 
 function Sidebar() {
-  return (
 
+  const styles = {
+
+    containerStyle: {
+      border: '.02rem solid',
+      borderColor: 'blue',
+      width: '12rem',
+      float: 'left'
+    }
+
+  };
+
+  return (
+    <Container style={styles.containerStyle}>
     <Form.Row as={Col} sm="1">
       <ButtonGroup vertical>
         <h1>Filter Products</h1>
@@ -36,6 +48,7 @@ function Sidebar() {
         </Dropdown>
       </ButtonGroup>
     </Form.Row>
+    </Container>
   )
 };
 
