@@ -42,4 +42,8 @@ export default {
   getUserProducts(id) {
     return axios.get(`/api/user/products/${id}`);
   },
+
+  createSession(cart) {
+    return axios.get(`/checkout`, cart);
+  }
 };

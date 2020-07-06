@@ -8,7 +8,7 @@ import { Elements }  from '@stripe/react-stripe-js'
 import config from './auth_config.json';
 import history from './utils/history';
 
-const stripePromise = loadStripe('')
+const stripePromise = loadStripe('pk_test_51GyhD6JxF3l7n3KAqKpEW0eD1002yA5Su9f1LOMx5MR4V0c0oUEP8Lo5e2uFBgOktYuJSNfrRIlUhPRb1lMcTEtp00C8W3Zb9e')
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = (appState) => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Card, Dropdown, Button } from 'react-bootstrap';
 import './style.css';
+import Checkout from '../Checkout';
 
 function ShoppingCart({ p, i }) {
   return (
@@ -29,6 +30,7 @@ function ShoppingCart({ p, i }) {
                 </Row>
               </Card>
             </Dropdown.Item>
+            <Checkout />
           </Dropdown.Menu>
         </Dropdown>
 
