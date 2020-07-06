@@ -9,10 +9,10 @@ class Breadcrumbs extends React.Component {
         return (
             <div>
                 <Breadcrumb>
-                    <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                    <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-                        Library
-                    </Breadcrumb.Item>
+                    <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/profile">Profile</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/StorePage">Store</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/ProductCard">Product</Breadcrumb.Item>
                     <DropDown />
                 </Breadcrumb>
             </div>

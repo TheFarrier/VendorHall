@@ -12,11 +12,17 @@ const NavBar = () => {
 
   const styles = {
     headerStyle: {
-      background: 'lightblue',
+      background: 'WhiteSmoke',
     },
     headingStyle: {
-      fontSize: 100,
+      fontSize: 25,
+      background: 'WhiteSmoke',
+      float: 'left'
     },
+    dropdownStyle: {
+      float: 'right',
+      background: 'WhiteSmoke'
+    }
   };
 
   return (
@@ -30,63 +36,65 @@ const NavBar = () => {
           {' '}
           <i className="fa fa-shopping-bag" aria-hidden="true" />
         </h1>
+
+        {isAuthenticated && (
+          <span>
+            <Dropdown style={styles.dropdownStyle}>
+              <Dropdown.Toggle className="justify-content-end" variant="light" id="dropdown-basic">
+                <i class="fas fa-user fa-lg"></i>
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">
+                  <Link to="/">Home</Link>&nbsp;
+              </Dropdown.Item>
+                <Dropdown.Item href="#/action-2">
+                  <Link to="/profile">  Profile</Link>
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-3">
+                  <Link to="/vendor">Become a Vendor</Link>
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-4">
+                  {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </span>
+        )}
+
+        
+        
       </header>
 
-      {isAuthenticated && (
-        <span>
-          <Dropdown>
-            <Dropdown.Toggle variant="light" id="dropdown-basic">
-              <i class="fas fa-user fa-2x"></i>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">
-                <Link to="/">Home</Link>&nbsp;
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-2">
-                <Link to="/profile">  Profile</Link>
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-3">
-                <Link to="/vendor">Become a Vendor</Link>
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-4">
-                {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </span>
-      )}
+      <Navbar bg="light" expand="sm">
+          <Navbar.Brand href="#home"></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="#link">Clothing</Nav.Link>
+              <Nav.Link href="#link">Jewelry</Nav.Link>
+              <Nav.Link href="#link">Art</Nav.Link>
+              <Nav.Link href="#link">Entertainment</Nav.Link>
+              <Nav.Link href="#link">Used</Nav.Link>
+              <NavDropdown title="Sort by" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Sort by newest</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Sort by price: high to low</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Sort by price: low to high</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">Sort by customer ratings</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.5">Daily Featured Vendor</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
 
-      {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>  Log in</button>
-      )}
+            <Form inline>
+              <FormControl type="text" placeholder="Search for products" className="mr-sm-2" />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+          <ShoppingCart />
+        </Navbar>
 
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Vendor Hall</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#link">Clothing</Nav.Link>
-            <Nav.Link href="#link">Jewelry</Nav.Link>
-            <Nav.Link href="#link">Art</Nav.Link>
-            <Nav.Link href="#link">Entertainment</Nav.Link>
-            <Nav.Link href="#link">Used</Nav.Link>
-            <NavDropdown title="Sort by" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Sort by newest</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Sort by price: high to low</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Sort by price: low to high</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Sort by customer ratings</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.5">Daily Featured Vendor</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
 
-          <Form inline>
-            <FormControl type="text" placeholder="Search for products" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-        <ShoppingCart />
-      </Navbar>
+
     </div>
   );
 };
