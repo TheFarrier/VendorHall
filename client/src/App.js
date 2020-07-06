@@ -11,8 +11,6 @@ import Profile from './components/Profile';
 import history from './utils/history';
 import Footer from './components/Footer';
 import UploadProducts from './pages/UploadProduct';
-import Header from './components/Header';
-import Search from './components/Search';
 import Sidebar from './components/Sidebar';
 import Vendor from './components/Vendor/index';
 import './App.css';
@@ -20,8 +18,7 @@ import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 //The RB css import code
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Product from './components/ProductCard';
-
-
+// import SingleProduct from './components/SingleProduct';
 
 
 function App() {
@@ -33,12 +30,11 @@ function App() {
   return (
     <div className="App">
       {/* Don't forget to include the history module */}
-      <Header />
       <Router history={history}>
         <header>
           <NavBar />
-          <Search />
           <Breadcrumbs />
+          {/* <SingleProduct /> */}
         </header>
         <Sidebar />
         <Switch>
@@ -58,6 +54,7 @@ function App() {
           {/* <Route exact path="/products/:id" component={Product} /> */}
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
+        
       </Router>
       <Footer />
     </div>

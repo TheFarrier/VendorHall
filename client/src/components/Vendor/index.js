@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, InputGroup, Button, Col } from "react-bootstrap";
+import { Form, InputGroup, Button, Col, Row } from "react-bootstrap";
 import './style.css';
 import RegisterStripe from "../RegisterStripe"
 
@@ -18,7 +18,7 @@ function Vendor() {
   };
 
   return (
-    <div>
+    <Row>
       <Form noValidate validated={validated} onSubmit={handleSubmit} border="primary" style={{ width: '50rem' }}>
         <Form.Row>
           <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom01">
@@ -105,7 +105,7 @@ function Vendor() {
         </Form.Row>
       </Form>
       <RegisterStripe />
-    </div>
+    </Row>
     
   );
 }
