@@ -45,5 +45,8 @@ export default {
 
   createSession(cart) {
     return axios.get(`/checkout`, cart);
+  },
+  getStripeInfo(){
+    return axios.get('/stripeinfo')
   }
 };

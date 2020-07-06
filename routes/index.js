@@ -27,6 +27,12 @@ router.get("/checkout", async (req, res)=>{
   res.json({session_id: session.id})
 })
 
+router.get("/stripeinfo", (req, res)=>{
+  return res.json({
+    client_id: "ca_HYehoVsWJzZ8Beqd5iOkfdGjQ4Yz6VEG",
+    stateValue: "sv_53124"
+  })
+})
 
 router.get("/connect/oauth", async (req, res) => {
   console.log("---Route HIT")

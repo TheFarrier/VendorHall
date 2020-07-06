@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css';
+import API from '../../utils/API'
+
+
 
 function RegisterStripe () {
 
-  let client_id ="ca_HYehoVsWJzZ8Beqd5iOkfdGjQ4Yz6VEG"
+  const [stripe, setStripe] = useState({});
 
-  let stripelink = `https://connect.stripe.com/express/oauth/authorize
-  ?client_id=${client_id}
-  &state={STATE_VALUE}
-  &stripe_user[business_type]=individual
-  &suggested_capabilities[]=transfers`
+  useEffect(()=>{
+    API.getStripeInfo()
+      .then((res)=>{
+        console.log(res)
+        setStripe(res.data)
+      })
+      .catch((err) => console.log(err));
+  },[])
+
+
+
+  let stripelink = `https://connect.stripe.com/express/oauth/authorize?client_id=${stripe.client_id}&state=${stripe.stateValue}&stripe_user[country]=US&suggested_capabilities[]=transfers`
 
   return (
     <div>
@@ -22,4 +32,3 @@ function RegisterStripe () {
 }
 
 export default RegisterStripe;
-
