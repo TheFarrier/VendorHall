@@ -8,19 +8,10 @@ const stripe = Stripe('sk_test_51GyhD6JxF3l7n3KAjT3zZwrXPTzUKJ87DQ1OpU6H4sKVv0yp
 // API Routes
 router.use("/api", apiRoutes);
 
-router.get("/checkout", async (req, res)=>{
+router.post("/checkout", async (req, res)=>{
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
-    line_items: [{
-      price_data: {
-        currency: 'usd',
-        product_data: {
-          name: 'T-shirt',
-        },
-        unit_amount: 2000,
-      },
-      quantity: 1,
-    }],
+    line_items: req.body,
     mode: 'payment',
     success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: 'https://example.com/cancel',
