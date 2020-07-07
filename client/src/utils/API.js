@@ -42,4 +42,11 @@ export default {
   getUserProducts(id) {
     return axios.get(`/api/user/products/${id}`);
   },
+
+  createSession(cart) {
+    return axios.post(`/checkout`, cart);
+  },
+  getStripeInfo(){
+    return axios.get('/stripeinfo')
+  }
 };

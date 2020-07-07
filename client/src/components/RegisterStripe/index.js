@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css';
+import API from '../../utils/API'
+import { useAuth0 } from '../../react-auth0-spa';
+
+
 
 function RegisterStripe () {
 
-  let client_id ="ca_HYehoVsWJzZ8Beqd5iOkfdGjQ4Yz6VEG"
+  const [stripe, setStripe] = useState({});
+  const { loading, user } = useAuth0();
 
-  let stripelink = `https://connect.stripe.com/express/oauth/authorize
-  ?client_id=${client_id}
-  &state={STATE_VALUE}
-  &stripe_user[business_type]=individual
-  &suggested_capabilities[]=transfers`
+  useEffect(()=>{
+      API.getStripeInfo()
+        .then((res)=>{
+          setStripe(res.data)
+        })
+        .catch((err) => console.log(err));
+    },[])
+  
+
+
+
+  let stripelink = `https://connect.stripe.com/express/oauth/authorize?client_id=${stripe.client_id}&state=${stripe.stateValue}&stripe_user[country]=US&suggested_capabilities[]=transfers&stripe_user[email]=${user.email}`
 
   return (
-    <div>
-      <Button href={stripelink}>stripelink</Button>
-
-    </div>
-    
+    <a href={stripelink}>Become a Vendor</a>
   );
 }
 
 export default RegisterStripe;
-

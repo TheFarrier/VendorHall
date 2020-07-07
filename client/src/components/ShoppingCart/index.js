@@ -1,37 +1,59 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Col, Card, Dropdown, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Card, Dropdown} from 'react-bootstrap';
 import './style.css';
+import Checkout from '../Checkout';
+import CartCard from './CartCard'
 
-function ShoppingCart({ p, i }) {
+function ShoppingCart() {
+  const [products, setProducts] = useState([{}])
+
+  useEffect(() => {
+    const request = window.indexedDB.open("shoppingCart", 1);
+    
+    request.onupgradeneeded = event => {
+      
+      const db = event.target.result;
+      
+      // Creates an object store with a listID keypath that can be used to query on.
+      const shoppingCartStore = db.createObjectStore("shoppingCart", {keyPath: "listID"});
+      // Creates a statusIndex that we can query on.
+      shoppingCartStore.createIndex("idIndex", "ID");
+      console.log("store created")
+    }
+
+    request.onsuccess = () => {
+      const db = request.result;
+      const transaction = db.transaction(["shoppingCart"], "readwrite");
+      const shoppingCartStore = transaction.objectStore("shoppingCart");
+    
+      // Adds data to our objectStore
+      const getRequest = shoppingCartStore.getAll()
+      getRequest.onsuccess = ()=> {
+        setProducts(getRequest.result)
+      }
+    } 
+  }, [])
+
+
   return (
     <Dropdown>
-          <Dropdown.Toggle>
-            <i className="fa fa-shopping-cart" aria-hidden="true" /> {/*Shopping cart icon*/}
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Header>Shopping Cart</Dropdown.Header>
-            <Dropdown.Item>
-              <Card className="cart-item">
-                <Row>
-                  <Col lg={3}>
-                    <Card.Img className="cart-image" variant="left" src="https://i.imgur.com/05kFTos.jpg"></Card.Img>
-                  </Col>
-                  <Col lg={3}>
-                    <Card.Body className="cart-title">A shirt</Card.Body>
-                  </Col>
-                  <Col lg={1}>
-                    <Card.Body className="cart-qty">3</Card.Body>
-                  </Col>
-                  <Col lg={3}>
-                    <Card.Body className="cart-price">$25.00</Card.Body>
-                  </Col>
-                </Row>
-              </Card>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-
+      <Dropdown.Toggle>
+        <i className="fa fa-shopping-cart" aria-hidden="true" /> {/*Shopping cart icon*/}
+      </Dropdown.Toggle>
+      <Dropdown.Menu alignRight>
+        <Dropdown.Header>Shopping Cart</Dropdown.Header>
+          {products.map((product, index) => {
+            return(
+              <Dropdown.Item>
+                <Card className="cart-item">
+                  <CartCard p={product} i={index} />
+                </Card>
+              </Dropdown.Item>
+            )
+          })}
+        <Checkout />
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
 
