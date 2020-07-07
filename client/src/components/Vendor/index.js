@@ -1,115 +1,89 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, InputGroup, Button, Col, Row } from "react-bootstrap";
+import { useAuth0 } from '../../react-auth0-spa';
 import './style.css';
 import RegisterStripe from "../RegisterStripe"
+import API from '../../utils/API'
+import { useParams, Redirect } from "react-router-dom";
 
 function Vendor() {
 
   const [validated, setValidated] = useState(false);
+  const [newVendor, setVendor] = useState({})
+  const { loading, user } = useAuth0();
+  const { id } = useParams();
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  useEffect(() => {
+    setVendor({
+      name: "",
+      description: "",
+      auth_id: user.sub,
+      stripe_id: id,
+      products:[]
+    }) 
+  }, []);
 
-    setValidated(true);
-  };
+
+  const handleClick = async () => {
+    await API.createUser(newVendor)
+    await Redirect
+  }
+
+  const handleInputChange = event => {
+    setVendor({
+      ...newVendor,
+      [event.target.name]: event.target.value
+    })
+  }
 
   return (
     <Row>
-      <Form noValidate validated={validated} onSubmit={handleSubmit} border="primary" style={{ width: '50rem' }}>
+      <h2>Finish setting up your store</h2>
+      <Form onSubmit={handleSubmit} border="primary" style={{ width: '50rem' }}>
         <Form.Row>
-          <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom01">
-            <Form.Control
-              required
+          <Form.Group as={Col} md={{ span: 3, offset: 3 }}>
+            <input 
+              onChange={handleInputChange}
+              name="name"
               type="text"
-              placeholder="First name"
-              defaultValue=""
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom02">
-            <Form.Control
-              required
-              type="text"
-              placeholder="Last name"
-              defaultValue=""
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>.
-        <Form.Row>
-          <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustomUsername">
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-              </InputGroup.Prepend>
-              <Form.Control
-                type="text"
-                placeholder="Username"
-                aria-describedby="inputGroupPrepend"
-                required
-              />
-              <Form.Control.Feedback type="valid">
-                Please choose a username.
-                </Form.Control.Feedback>
-            </InputGroup>
-          </Form.Group>
-          <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom02">
-            <Form.Control
-              required
-              type="text"
-              placeholder="Vendor name"
-              defaultValue=""
+              className="form-control"
+              placeholder="Vendor Name"
+              id="name"
             />
             <Form.Control.Feedback>Please choose a vendor name.</Form.Control.Feedback>
           </Form.Group>
-        </Form.Row>.
-        <Form.Row>
-          <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom03">
-            <Form.Control type="text" placeholder="City" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid city.
-              </Form.Control.Feedback>
-          </Form.Group>
         </Form.Row>
         <Form.Row>
-          <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom04">
-            <Form.Control type="text" placeholder="State" required />
+          <Form.Group as={Col} md={{ span: 4, offset: 3 }} >
+          <input 
+              onChange={handleInputChange}
+              name="description"
+              type="textarea"
+              className="form-control"
+              placeholder="Describe your store!"
+              id="description"
+            />
             <Form.Control.Feedback type="invalid">
-              Please provide a valid state.
+              Please describe your store.
               </Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
-        <Form.Row>
-          <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom05">
-            <Form.Control type="text" placeholder="Zip" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid zip.
-            </Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
         <Form.Row>
           <Form.Group as={Col} md={{ span: 4, offset: 3 }}>
             <Form.Check
-              required
               label="Agree to terms and conditions"
               feedback="You must agree before submitting."
             />
           </Form.Group>
         </Form.Row>
         <Form.Row >
-          <Button type="submit" as={Col} md={{ span: 4, offset: 3 }}>Submit form</Button>
+          <Button onClick={handleClick} as={Col} md={{ span: 4, offset: 3 }}>Submit form</Button>
         </Form.Row>
       </Form>
       <RegisterStripe />
     </Row>
-    
   );
 }
-
 
 export default Vendor;
 
