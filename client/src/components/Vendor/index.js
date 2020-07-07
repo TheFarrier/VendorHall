@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, InputGroup, Button, Col, Row } from "react-bootstrap";
+import { Form, Button, Col, Row } from "react-bootstrap";
 import { useAuth0 } from '../../react-auth0-spa';
 import './style.css';
 import RegisterStripe from "../RegisterStripe"
@@ -8,9 +8,9 @@ import { useParams, Redirect } from "react-router-dom";
 
 function Vendor() {
 
-  const [validated, setValidated] = useState(false);
+
   const [newVendor, setVendor] = useState({})
-  const { loading, user } = useAuth0();
+  const { user } = useAuth0();
   const { id } = useParams();
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function Vendor() {
   return (
     <Row>
       <h2>Finish setting up your store</h2>
-      <Form onSubmit={handleSubmit} border="primary" style={{ width: '50rem' }}>
+      <Form onSubmit={handleClick} border="primary" style={{ width: '50rem' }}>
         <Form.Row>
           <Form.Group as={Col} md={{ span: 3, offset: 3 }}>
             <input 
