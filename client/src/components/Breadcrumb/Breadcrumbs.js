@@ -1,20 +1,20 @@
 import React from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import DropDown from '../Filter/dropdown';
+import './style.css'
 
-class Breadcrumbs extends React.Component{
-    render(){
+class Breadcrumbs extends React.Component {
+    render() {
 
-        return(
+        return (
             <div>
                 <Breadcrumb>
-  <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-  <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-    Library
-  </Breadcrumb.Item>
-  <Breadcrumb.Item active>Data</Breadcrumb.Item>
-  <DropDown/>
-</Breadcrumb>
+                    <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/profile">Profile</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/StorePage">Store</Breadcrumb.Item>
+                    <Breadcrumb.Item href="/ProductCard">Product</Breadcrumb.Item>
+                    <DropDown />
+                </Breadcrumb>
             </div>
         )
     }

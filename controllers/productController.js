@@ -4,6 +4,7 @@ module.exports = {
   findAllProducts: function(req,res) {
     db.Products
       .find(req.query)
+      .populate('vendor')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

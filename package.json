@@ -2,6 +2,9 @@
   "name": "react-store",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "12.13.0"
+  },
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -25,15 +28,16 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.1",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.7.0",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.7.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.5.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
-    "react-bootstrap": "^1.0.1"
+    "react-bootstrap": "^1.0.1",
+    "stripe": "^8.68.0"
   }
 }
