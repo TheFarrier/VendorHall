@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useAuth0 } from '../../react-auth0-spa';
 import ShoppingCart from "../ShoppingCart"
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Dropdown } from "react-bootstrap";
+import RegisterStripe from '../RegisterStripe';
 
 // NEW - import the Link component
 
@@ -51,7 +52,7 @@ const NavBar = () => {
                   <Link to="/profile">  Profile</Link>
                 </Dropdown.Item>
                 <Dropdown.Item href="#/action-3">
-                  <Link to="/vendor">Become a Vendor</Link>
+                  <RegisterStripe />
                 </Dropdown.Item>
                 <Dropdown.Item href="#/action-4">
                   {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}

@@ -25,11 +25,7 @@ function RegisterStripe () {
   let stripelink = `https://connect.stripe.com/express/oauth/authorize?client_id=${stripe.client_id}&state=${stripe.stateValue}&stripe_user[country]=US&suggested_capabilities[]=transfers&stripe_user[email]=${user.email}`
 
   return (
-    <div>
-      <Button href={stripelink}>stripelink</Button>
-
-    </div>
-    
+    <a href={stripelink}>Become a Vendor</a>
   );
 }
 
