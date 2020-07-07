@@ -18,7 +18,7 @@ import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 //The RB css import code
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Product from './components/ProductCard';
-// import SingleProduct from './components/SingleProduct';
+import SingleProduct from './components/SingleProduct';
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
         <header>
           <NavBar />
           <Breadcrumbs />
-          {/* <SingleProduct /> */}
+         
         </header>
         <Sidebar />
         <Switch>
@@ -52,6 +52,7 @@ function App() {
             <AllStores />
           </Route>
           {/* <Route exact path="/products/:id" component={Product} /> */}
+          <Route path="SingleProduct" component={SingleProduct} />
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
         
