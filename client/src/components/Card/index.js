@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './style.css';
@@ -10,6 +10,7 @@ const addtocart = (product) => {
 };
 
 function Productcard({ p, i }) {
+
   return (
     <section className="col-md-3 xs-12" key={i}>
       <Card>
@@ -23,7 +24,7 @@ function Productcard({ p, i }) {
           </Card.Text>
         </Card.Body>
         <Card.Footer>
-          <Link to={`/user/products/${p.vendor}`}>Store Page</Link>
+          <Link to={`/user/products/${p.vendor._id}`}>{p.vendor.name}</Link>
           <Button onClick={()=>addtocart(p)}>Add to Cart</Button>
         </Card.Footer>
       </Card>
