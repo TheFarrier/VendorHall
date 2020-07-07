@@ -2,8 +2,8 @@ const db = require("../models")
 
 module.exports ={
   registerUser: function(req, res) {
-    db.User
-      .create(req.body)
+    db.User.collection
+      .insert(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -14,7 +14,6 @@ module.exports ={
       .catch(err => res.status(422).json(err));
   },
   updateUser: function(req, res) {
-    console.log(req.body)
     db.User
       .findOneAndUpdate({ _id: req.body.vendor }, {$push:{products: req.body._id}})
       .then(dbModel => res.json(dbModel))
@@ -28,7 +27,6 @@ module.exports ={
       .catch(err => res.status(422).json(err));
   },
   findUserProducts: function(req, res) {
-    console.log(req.params.id)
     db.User
       .findOne({_id: req.params.id})
       .populate('products')
