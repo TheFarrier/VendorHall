@@ -2,6 +2,7 @@ const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
 const Stripe = require('stripe');
+const Axios  = require("axios");
 
 const stripe = Stripe('sk_test_51GyhD6JxF3l7n3KAjT3zZwrXPTzUKJ87DQ1OpU6H4sKVv0ypqTxseixSN6L61HYF7DiGuzTiHIEsg1QGRv96F8Or00EeNRcztY')
 // API Routes
@@ -41,8 +42,6 @@ router.get("/connect/oauth", async (req, res) => {
   if(!stateMatches(state)) {
     return res.status(403).json({ error: 'Incorrect state parameter: ' + state });
   }
-  console.log(code)
-  console.log(state)
   // Send the authorization code to Stripe's API.
   stripe.oauth.token({
     grant_type: 'authorization_code',
@@ -53,7 +52,7 @@ router.get("/connect/oauth", async (req, res) => {
       saveAccountId(connected_account_id);
 
       // Render some HTML or redirect to a different page.
-      return res.redirect("http://localhost:3000/profile");
+      return res.redirect(`http://localhost:3000/vendor/${connected_account_id.stripe_user_id}`);
     },
     (err) => {
       if (err.type === 'StripeInvalidGrantError') {
@@ -72,10 +71,11 @@ const stateMatches = (state_parameter) => {
   return saved_state == state_parameter;
 }
 
-const saveAccountId = (id) => {
+const saveAccountId = async (id) => {
   // Save the connected account ID from the response to your database.
-  console.log('Connected account ID'+ id.stripe_user_id);
-  console.log(id)
+  console.log('Connected account ID: '+ id.stripe_user_id);
+  let account = await stripe.accounts.retrieve(id.stripe_user_id)
+  console.log(account)
 }
 
 
