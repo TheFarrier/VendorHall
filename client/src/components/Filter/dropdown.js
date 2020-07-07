@@ -8,10 +8,7 @@ export default class DropDown extends React.Component{
         return(
             <div>
                 <Dropdown>
-  <Dropdown.Toggle variant="success" id="dropdown-basic">
-    Filter
-  </Dropdown.Toggle>
-
+  
   <Dropdown.Menu>
    <CheckboxLabels/>
   </Dropdown.Menu>

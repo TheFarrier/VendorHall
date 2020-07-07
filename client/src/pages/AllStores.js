@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Row } from 'react-bootstrap';
 import API from '../utils/API';
-import ProductCard from '../components/ProductCard';
 import Card from '../components/Card';
 
 function StorePage() {

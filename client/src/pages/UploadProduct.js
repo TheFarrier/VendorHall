@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import API from '../utils/API';
 import { useAuth0 } from '../react-auth0-spa';
-import ProductCard from '../components/ProductCard';
 
 function StorePage() {
+
+
   // Initialize books as an empty array
   const [formObject, setFormObject] = useState({});
   const [userData, setUserData] = useState({});
 
-  const { id } = useParams();
-  const {
-    loading, user, getTokenSilently, getIdTokenClaims,
-  } = useAuth0();
+  const { loading, user } = useAuth0();
+
+  const styles = {
+    divStyle: {
+
+      border: '.02rem solid',
+      borderColor: 'CadetBlue',
+      width: '65rem',
+      height: '25rem',
+      float: 'center',
+      padding: '25px'
+    }
+
+  }
 
   useEffect(() => {
     loadUserData();

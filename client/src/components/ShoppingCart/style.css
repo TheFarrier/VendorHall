@@ -1,0 +1,17 @@
+.cart-image {
+  object-position: center; /* Center the image within the element */
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.cart-title {
+
+}
+
+.cart-item{
+  width: 250px;
+  padding: 0px;
+}
