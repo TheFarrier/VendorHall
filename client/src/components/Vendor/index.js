@@ -1,9 +1,23 @@
 import React, { useState } from "react";
-import { Form, InputGroup, Button, Col, Row } from "react-bootstrap";
+import { Form, InputGroup, Button, Col, Row, Container } from "react-bootstrap";
 import './style.css';
 import RegisterStripe from "../RegisterStripe"
 
 function Vendor() {
+
+  const styles = {
+    containertyle: {
+
+      border: '.02rem solid',
+      borderColor: 'CadetBlue',
+      width: '65rem',
+      height: '25rem',
+      float: 'center',
+      padding: '25px'
+    }
+
+  }
+
 
   const [validated, setValidated] = useState(false);
 
@@ -18,10 +32,11 @@ function Vendor() {
   };
 
   return (
-    <Row>
-      <Form noValidate validated={validated} onSubmit={handleSubmit} border="primary" style={{ width: '50rem' }}>
+    <Container style={styles.containertyle}>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Row>
-          <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom01">
+          <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Form.Label>First name</Form.Label>
             <Form.Control
               required
               type="text"
@@ -30,7 +45,8 @@ function Vendor() {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom02">
+          <Form.Group as={Col} md="4" controlId="validationCustom02">
+            <Form.Label>Last name</Form.Label>
             <Form.Control
               required
               type="text"
@@ -39,78 +55,58 @@ function Vendor() {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
-        </Form.Row>.
-        <Form.Row>
-          <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustomUsername">
+          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+            <Form.Label>Vendor</Form.Label>
             <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-              </InputGroup.Prepend>
               <Form.Control
                 type="text"
-                placeholder="Username"
+                placeholder="Vendor"
                 aria-describedby="inputGroupPrepend"
                 required
               />
-              <Form.Control.Feedback type="valid">
+              <Form.Control.Feedback type="invalid">
                 Please choose a username.
-                </Form.Control.Feedback>
+            </Form.Control.Feedback>
             </InputGroup>
           </Form.Group>
-          <Form.Group as={Col} md={{ span: 3, offset: 3 }} controlId="validationCustom02">
-            <Form.Control
-              required
-              type="text"
-              placeholder="Vendor name"
-              defaultValue=""
-            />
-            <Form.Control.Feedback>Please choose a vendor name.</Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>.
+        </Form.Row>
         <Form.Row>
-          <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom03">
+          <Form.Group as={Col} md="6" controlId="validationCustom03">
+            <Form.Label>City</Form.Label>
             <Form.Control type="text" placeholder="City" required />
             <Form.Control.Feedback type="invalid">
               Please provide a valid city.
-              </Form.Control.Feedback>
+          </Form.Control.Feedback>
           </Form.Group>
-        </Form.Row>
-        <Form.Row>
-          <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom04">
+          <Form.Group as={Col} md="3" controlId="validationCustom04">
+            <Form.Label>State</Form.Label>
             <Form.Control type="text" placeholder="State" required />
             <Form.Control.Feedback type="invalid">
               Please provide a valid state.
-              </Form.Control.Feedback>
+          </Form.Control.Feedback>
           </Form.Group>
-        </Form.Row>
-        <Form.Row>
-          <Form.Group as={Col} md={{ span: 4, offset: 3 }} controlId="validationCustom05">
+          <Form.Group as={Col} md="3" controlId="validationCustom05">
+            <Form.Label>Zip</Form.Label>
             <Form.Control type="text" placeholder="Zip" required />
             <Form.Control.Feedback type="invalid">
               Please provide a valid zip.
-            </Form.Control.Feedback>
+          </Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
+        <Form.Group>
+          <Form.Check
+            required
+            label="Agree to terms and conditions"
+            feedback="You must agree before submitting."
+          />
+        </Form.Group>
+        <Button type="submit">Submit form</Button>
         <Form.Row>
-          <Form.Group as={Col} md={{ span: 4, offset: 3 }}>
-            <Form.Check
-              required
-              label="Agree to terms and conditions"
-              feedback="You must agree before submitting."
-            />
-          </Form.Group>
-        </Form.Row>
-        <Form.Row >
-          <Button type="submit" as={Col} md={{ span: 4, offset: 3 }}>Submit form</Button>
+          <RegisterStripe />
         </Form.Row>
       </Form>
-      <RegisterStripe />
-    </Row>
-    
+    </Container>
   );
 }
 
-
 export default Vendor;
-
-
