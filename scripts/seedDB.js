@@ -3,90 +3,100 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/vendorhall" //name database
-);
+  "mongodb://localhost/vendorhall"
+  );
 
 const productSeed = [
   {
+    _id: mongoose.Types.ObjectId("5ef401e30b6a7b5e40b2416e"),
     name: "A Cat",
     description: "This is a nice cat",
     price: 25,
     quantity: 1,
     image:"https://i.imgur.com/0LINzxs.jpg",
-    user:"5eebe09df2d6e5df709e8e64"
+    vendor:mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e64")
   },
   {
+    _id: mongoose.Types.ObjectId("5ef401e30b6a7b5e40b2416f"),
     name: "A Dog",
     description: "This is a large dog",
     price: 30,
     quantity: 1,
     image:"https://i.imgur.com/Whf10Sd.png",
-    user:"5eebe09df2d6e5df709e8e64"
+    vendor:mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e64")
   },
   {
+    _id: mongoose.Types.ObjectId("5ef401e30b6a7b5e40b24170"),
     name: "A shirt",
     description: "This is a quirky shirt",
     price: 15,
     quantity: 10,
     image:"https://i.imgur.com/05kFTos.jpg",
-    user:"5eebe09df2d6e5df709e8e66"
+    vendor:mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e66")
   },
   {
+    _id: mongoose.Types.ObjectId("5ef401e30b6a7b5e40b24171"),
     name: "Jeans",
     description: "Regular blue Jeans",
     price: 20,
     quantity: 10,
     image:"https://i.imgur.com/uJmJty2.jpg",
-    user:"5eebe09df2d6e5df709e8e66"
+    vendor:mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e66")
   },
-
   {
+    _id: mongoose.Types.ObjectId("5ef401e30b6a7b5e40b24172"),
     name: "Mustang",
     description: "Vroom fast car",
     price: 300,
     quantity: 2,
     image:"https://i.imgur.com/VKq4ME2.jpg",
-    user:"5eebe09df2d6e5df709e8e65"
+    vendor: mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e65")
   },
   {
+    _id: mongoose.Types.ObjectId("5ef401e30b6a7b5e40b24173"),
     name: "Camaro",
     description: "Better than a Mustang",
     price: 500,
     quantity: 1,
     image:"https://i.imgur.com/ciOmTnu.jpg",
-    user:"5eebe09df2d6e5df709e8e65"
+    vendor: mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e65")
   },
 ];
 
 const userSeed = [
   {
-    username: "yours@example.com",
-    auth_id: "auth0|5eeb6410129c430bebd1cfc2",
-    products:[]
+    _id: mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e64"),
+    name: "Pet Shop",
+    description:"",
+    auth_id: "",
+    stripe_id: "",
+    products:[mongoose.Types.ObjectId("5ef401e30b6a7b5e40b2416e"),mongoose.Types.ObjectId("5ef401e30b6a7b5e40b2416f")]
   },
   {
-    username: "Nate Farrey",
-    auth_id: "auth0|5eeacbcc357c150b6c22ea4a",
-    products:[]
+    _id: mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e65"),
+    name: "Car Central",
+    auth_id: "",
+    products:[mongoose.Types.ObjectId("5ef401e30b6a7b5e40b24173"),mongoose.Types.ObjectId("5ef401e30b6a7b5e40b24172")]
   },
   {
-    username: "sylviadiane69@gmail.com",
-    auth_id: "auth0|5eeac76f357c150b6c22ea2f",
-    products:[]
+    _id: mongoose.Types.ObjectId("5eebe09df2d6e5df709e8e66"),
+    name: "Cool Threads",
+    auth_id: "",
+    products:[mongoose.Types.ObjectId("5ef401e30b6a7b5e40b24171"),mongoose.Types.ObjectId("5ef401e30b6a7b5e40b24170")]
   }
 ];
 
-// db.User
-//   .remove({})
-//   .then(() => db.User.collection.insertMany(userSeed))
-//   .then(data => {
-//     console.log(data.result.n + " records inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
+db.User
+  .remove({})
+  .then(() => db.User.collection.insertMany(userSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 
 db.Products
   .remove({})
