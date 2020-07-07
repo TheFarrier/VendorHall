@@ -51,6 +51,19 @@ export default {
       shoppingCartStore.createIndex("idIndex", "ID");
       console.log("store created")
     }
+
+    request.onsuccess = () => {
+      const db = request.result;
+      const transaction = db.transaction(["shoppingCart"], "readwrite");
+      const shoppingCartStore = transaction.objectStore("shoppingCart");
+    
+      // Adds data to our objectStore
+      const getRequest = shoppingCartStore.getAll()
+      getRequest.onsuccess = ()=> {
+        // console.log(getRequest.result)
+        return getRequest.result
+      }
+    }
   },
 
   addToCart (product) {
@@ -71,7 +84,7 @@ export default {
       const shoppingCartStore = transaction.objectStore("shoppingCart");
     
       // Adds data to our objectStore
-      shoppingCartStore.add({ listID: product._id, name: product.name, price: product.price, quantity: 1 });
+      shoppingCartStore.add({ listID: product._id, name: product.name, price: product.price, image:product.image ,quantity: 1 });
       console.log(product)
     }
   },
