@@ -54,6 +54,9 @@ const NavBar = () => {
                 <Dropdown.Item href="#/action-3">
                   <RegisterStripe />
                 </Dropdown.Item>
+                <Dropdown.Item href="#/action-3">
+                  <Link to="/upload">Upload a Product</Link>
+                </Dropdown.Item>
                 <Dropdown.Item href="#/action-4">
                   {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}
                 </Dropdown.Item>

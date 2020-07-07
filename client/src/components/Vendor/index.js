@@ -24,9 +24,8 @@ function Vendor() {
   }, []);
 
 
-  const handleClick = async () => {
-    await API.createUser(newVendor)
-    await Redirect
+  const handleClick =  () => {
+    API.createUser(newVendor)
   }
 
   const handleInputChange = event => {
