@@ -43,7 +43,7 @@ router.get("/connect/oauth", async (req, res) => {
       saveAccountId(connected_account_id);
 
       // Render some HTML or redirect to a different page.
-      return res.redirect(`http://localhost:3000/vendor/${connected_account_id.stripe_user_id}`);
+      return res.redirect(`https://v-hall-backend.herokuapp.com/vendor/${connected_account_id.stripe_user_id}`);
     },
     (err) => {
       if (err.type === 'StripeInvalidGrantError') {
