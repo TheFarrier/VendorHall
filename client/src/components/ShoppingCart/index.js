@@ -44,7 +44,7 @@ function ShoppingCart() {
         <Dropdown.Header>Shopping Cart</Dropdown.Header>
           {products.map((product, index) => {
             return(
-              <Dropdown.Item>
+              <Dropdown.Item key={index}>
                 <Card className="cart-item">
                   <CartCard p={product} i={index} />
                 </Card>

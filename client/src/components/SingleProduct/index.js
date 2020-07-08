@@ -46,8 +46,8 @@ function SingleProduct() {
                 <Col sm={1}></Col>
                 <Card style={{ width: '20rem' }}>
                     <Card.Body>
-                        <Card.Title>{product.price}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{product.name}</Card.Subtitle>
+                        <Card.Title>{product.name}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">${product.price}.00</Card.Subtitle>
                         <Card.Text>
                             {product.description}
                         </Card.Text>

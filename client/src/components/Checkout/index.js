@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css';
 import API from '../../utils/API'
-import DB from '../../utils/IndexedDB'
 import {loadStripe} from '@stripe/stripe-js';
 
 
 function Checkout() {
 
-  let [cart, setCart] =useState([{}])
+  let [cart, setCart] = useState([{}])
   const [sessionId, setID] = useState('')
   const stripePromise = loadStripe('pk_test_51GyhD6JxF3l7n3KAqKpEW0eD1002yA5Su9f1LOMx5MR4V0c0oUEP8Lo5e2uFBgOktYuJSNfrRIlUhPRb1lMcTEtp00C8W3Zb9e');
 
@@ -34,7 +33,7 @@ function Checkout() {
       // Adds data to our objectStore
       const getRequest = shoppingCartStore.getAll()
       getRequest.onsuccess = ()=> {
-        cart = getRequest.result
+        setCart(getRequest.result)
         startSession();
       }
     } 

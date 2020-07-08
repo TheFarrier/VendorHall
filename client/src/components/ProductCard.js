@@ -11,7 +11,7 @@ function ProductCard({ p, index }) {
           {p.price}
         </span>
       </p>
-      <img src={p.image} style={{ width: '300px', height: '300px' }} />
+      <img src={p.image} style={{ width: '300px', height: '300px' }} alt={p.name} />
       <p>{p.description}</p>
     </div>
   );

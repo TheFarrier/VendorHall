@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import StorePage from './pages/StorePage';
 import AllStores from './pages/AllStores';
 import Checkout from './pages/Checkout';
@@ -17,7 +17,6 @@ import './App.css';
 import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 //The RB css import code
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Product from './components/ProductCard';
 import SingleProduct from './components/SingleProduct';
 
 
@@ -50,7 +49,6 @@ function App() {
           <Route exact path="/products">
             <AllStores />
           </Route>
-          {/* <Route exact path="/products/:id" component={Product} /> */}
           <Route path="/product/:id" component={SingleProduct} />
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
