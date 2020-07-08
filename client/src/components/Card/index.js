@@ -11,9 +11,17 @@ const addtocart = (product) => {
 
 function Productcard({ p, i }) {
 
+  const styles = {
+    cardStyle: {
+      border: '.02rem solid',
+      borderColor: 'MediumSeaGreen',
+      width: '15rem',
+    }
+  }
+
   return (
     <section className="col-md-3 xs-12" key={i}>
-      <Card>
+      <Card style={styles.cardStyle}>
         <Card.Img variant="top" src={p.image} className="card-image" />
         <Card.Body>
           <Card.Title>

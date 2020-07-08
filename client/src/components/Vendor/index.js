@@ -1,13 +1,14 @@
+import { Form, Button, Col, Row, Container } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
-import { Form, Button, Col, Row } from "react-bootstrap";
 import { useAuth0 } from '../../react-auth0-spa';
 import './style.css';
 import RegisterStripe from "../RegisterStripe"
 import API from '../../utils/API'
 import { useParams, Redirect } from "react-router-dom";
+import './style.css';
+
 
 function Vendor() {
-
 
   const [newVendor, setVendor] = useState({})
   const { user } = useAuth0();
@@ -36,7 +37,8 @@ function Vendor() {
   }
 
   return (
-    <Row>
+
+    <Container>
       <h2>Finish setting up your store</h2>
       <Form onSubmit={handleClick} border="primary" style={{ width: '50rem' }}>
         <Form.Row>
@@ -80,10 +82,12 @@ function Vendor() {
         </Form.Row>
       </Form>
       <RegisterStripe />
-    </Row>
+    </Container>
   );
 }
 
 export default Vendor;
+
+
 
 
