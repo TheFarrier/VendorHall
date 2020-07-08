@@ -8,7 +8,7 @@ function Sidebar() {
 
     containerStyle: {
       border: '.02rem solid',
-      borderColor: 'DarkCyan',
+      borderColor: 'MediumSeaGreen',
       width: '12rem',
       float: 'left',
       

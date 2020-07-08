@@ -10,7 +10,7 @@ const Profile = () => {
 
     containerStyle: {
         border: '.02rem solid',
-        borderColor: 'mediumseagreen',
+        borderColor: 'MediumSeaGreen',
         width: '65rem',
         height: '25rem',
         float: 'center',

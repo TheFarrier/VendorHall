@@ -7,7 +7,7 @@ function SingleProduct() {
 
         containerStyle: {
             border: '.02rem solid',
-            borderColor: 'gray',
+            borderColor: 'MediumSeaGreen',
             width: '65rem',
             height: '30rem',
             padding: '15px',
