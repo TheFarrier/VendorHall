@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import API from '../utils/API';
 import { useAuth0 } from '../react-auth0-spa';
-
-import { Form, Button, Container, Col, Row } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 
 function StorePage() {
 
