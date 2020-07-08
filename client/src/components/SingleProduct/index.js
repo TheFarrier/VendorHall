@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Card, Row, Col, Container, Button } from "react-bootstrap";
 import API from "../../utils/API"
 import DB from '../../utils/IndexedDB'
+import "./style.css"
 
 function SingleProduct() {
 
@@ -13,11 +14,12 @@ function SingleProduct() {
 
     const { id } = useParams();
     const [product, setProduct] = useState({});
+
     const styles = {
 
         containerStyle: {
             border: '.02rem solid',
-            borderColor: 'gray',
+            borderColor: 'MediumSeaGreen',
             width: '65rem',
             height: '30rem',
             padding: '15px',
@@ -25,6 +27,7 @@ function SingleProduct() {
         }
 
     };
+
 
     useEffect(() => {
         API.getProduct(id)
@@ -41,7 +44,9 @@ function SingleProduct() {
             <Row>
                 <Col sm={1}></Col>
                 <Card style={{ width: '20rem' }}>
+                <div>
                     <Card.Img variant="top" src={product.image} />
+                </div>
                 </Card>
                 <Col sm={1}></Col>
                 <Card style={{ width: '20rem' }}>
