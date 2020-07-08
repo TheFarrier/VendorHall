@@ -1,0 +1,10 @@
+
+div {
+  object-fit: contain;
+  overflow: hidden;
+}
+
+  .card {
+    border: 1px solid;
+    border-color: mediumseagreen;
+}

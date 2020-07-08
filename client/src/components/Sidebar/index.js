@@ -9,7 +9,7 @@ function Sidebar() {
     containerStyle: {
       border: '.02rem solid',
       borderColor: 'MediumSeaGreen',
-      width: '12rem',
+      width: '10rem',
       float: 'left',
       
     }
