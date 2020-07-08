@@ -39,7 +39,6 @@ function App() {
         <Sidebar />
         <Switch>
           <Route path="/" exact component={AllStores} />
-          <Route path="/profile" component={Profile} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/vendor/:id" component={Vendor} />
           <Route exact path="/user/products/:id">
@@ -52,7 +51,7 @@ function App() {
             <AllStores />
           </Route>
           {/* <Route exact path="/products/:id" component={Product} /> */}
-          <Route path="SingleProduct" component={SingleProduct} />
+          <Route path="/product/:id" component={SingleProduct} />
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
         

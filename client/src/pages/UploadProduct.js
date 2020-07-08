@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import API from '../utils/API';
 import { useAuth0 } from '../react-auth0-spa';
-import { Container } from 'react-bootstrap';
-
-
+import { Form, Button, Container } from "react-bootstrap";
 
 function StorePage() {
-  // Initialize books as an empty array
 
   const styles = {
 
@@ -72,10 +69,11 @@ function StorePage() {
 
   return (
     <div>
+
       
       <Container style={styles.containerStyle}>
       <h2 style={mystyle}>Upload a product listing</h2>
-      <form onSubmit={handleFormSubmit}>
+      <Form onSubmit={handleFormSubmit}>
         <div className="form-group">
           <input className="form-control" onChange={handleInputChange} name="name" placeholder="name" />
         </div>
@@ -93,13 +91,13 @@ function StorePage() {
         <div className="form-group">
           <input className="form-control" onChange={handleInputChange} name="image" placeholder="image url" />
         </div>
-        <button onClick={handleFormSubmit} style={{ float: 'right', marginBottom: 10 }} className="btn btn-success">
+        <Button type="submit" style={{ float: 'right', marginBottom: 10 }} className="btn btn-success">
           Submit
-        </button>
-      </form>
+        </Button>
+      </Form>
       </Container>
       </div>
-      
+
   );
 }
 
