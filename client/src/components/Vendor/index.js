@@ -1,10 +1,9 @@
-import { Form, Button, Col, Row, Container } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
+import { Form, Button, Col, Container } from "react-bootstrap";
+import React, { useState, useEffect, Redirect } from "react";
 import { useAuth0 } from '../../react-auth0-spa';
 import './style.css';
-import RegisterStripe from "../RegisterStripe"
 import API from '../../utils/API'
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import './style.css';
 
 
@@ -13,6 +12,7 @@ function Vendor() {
   const [newVendor, setVendor] = useState({})
   const { user } = useAuth0();
   const { id } = useParams();
+  const [redirectToProfile, setRedirect] = useState(false);
 
   useEffect(() => {
     setVendor({
@@ -24,9 +24,12 @@ function Vendor() {
     }) 
   }, []);
 
+  useEffect(()=>{},[redirectToProfile])
 
   const handleClick =  () => {
-    API.createUser(newVendor)
+    API.createUser(newVendor).then(
+      setRedirect(true)
+    )
   }
 
   const handleInputChange = event => {
@@ -37,7 +40,6 @@ function Vendor() {
   }
 
   return (
-
     <Container>
       <h2>Finish setting up your store</h2>
       <Form onSubmit={handleClick} border="primary" style={{ width: '50rem' }}>
@@ -81,13 +83,9 @@ function Vendor() {
           <Button onClick={handleClick} as={Col} md={{ span: 4, offset: 3 }}>Submit form</Button>
         </Form.Row>
       </Form>
-      <RegisterStripe />
+      {redirectToProfile? <h4>Vendor Created Successfully</h4> : null}
     </Container>
   );
 }
 
 export default Vendor;
-
-
-
-
