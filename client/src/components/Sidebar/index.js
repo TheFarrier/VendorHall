@@ -10,7 +10,8 @@ function Sidebar() {
       border: '.02rem solid',
       borderColor: 'DarkCyan',
       width: '12rem',
-      float: 'left'
+      float: 'left',
+      
     }
 
   };

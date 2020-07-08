@@ -1,8 +1,8 @@
 // src/components/Profile.js
-
 import React, { Fragment } from 'react';
 import { useAuth0 } from '../react-auth0-spa';
 import { Container } from 'react-bootstrap';
+
 
 const Profile = () => {
 
@@ -10,10 +10,11 @@ const Profile = () => {
 
     containerStyle: {
         border: '.02rem solid',
-        borderColor: 'gray',
+        borderColor: 'mediumseagreen',
         width: '65rem',
         height: '25rem',
         float: 'center',
+        padding: '5px'
     }
 
 };

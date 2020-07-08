@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card, Container } from 'react-bootstrap';
 import './style.css';
 
 function ShoppingCart({ p, i }) {
+
+  
   return (
+
+    <Container>
       <Row>
         <Col lg={3}>
           <Card.Img className="cart-image" variant="left" src={p.image}></Card.Img>
@@ -19,6 +23,7 @@ function ShoppingCart({ p, i }) {
           <Card.Body className="cart-price">${p.price}</Card.Body>
         </Col>
       </Row>
+    </Container>
   );
 }
 
