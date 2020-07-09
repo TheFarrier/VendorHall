@@ -26,7 +26,7 @@ function Productcard({ p, i }) {
           </Card.Text>
         </Card.Body>
         <Card.Footer>
-          <Link to={`/user/products/${p.vendor._id}`}>{p.vendor.name}</Link>
+          <p><Link to={`/user/products/${p.vendor._id}`}>{p.vendor.name}</Link></p>
           <Button onClick={()=>addtocart(p)}>Add to Cart</Button>
         </Card.Footer>
         
