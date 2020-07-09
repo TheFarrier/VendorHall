@@ -51,8 +51,7 @@ function App() {
           <Route exact path="/products">
             <AllStores />
           </Route>
-          {/* <Route exact path="/products/:id" component={Product} /> */}
-          <Route path="SingleProduct" component={SingleProduct} />
+          <Route path="/product/:id" component={SingleProduct} />
         </Switch>
         <PrivateRoute path="/profile" component={Profile} />
         
