@@ -14,7 +14,9 @@ function Productcard({ p, i }) {
   return (
     <section className="col-md-3 xs-12" key={i}>
       <Card>
+        <Link to={`/product/${p._id}`}>
         <Card.Img variant="top" src={p.image} className="card-image" />
+        </Link>
         <Card.Body>
           <Card.Title>
             {p.name} ${p.price}
@@ -27,6 +29,7 @@ function Productcard({ p, i }) {
           <Link to={`/user/products/${p.vendor._id}`}>{p.vendor.name}</Link>
           <Button onClick={()=>addtocart(p)}>Add to Cart</Button>
         </Card.Footer>
+        
       </Card>
     </section>
 

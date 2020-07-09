@@ -1,8 +1,18 @@
-import React from "react";
-import { Card, Row, Col, Container } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { Card, Row, Col, Container, Button } from "react-bootstrap";
+import API from "../../utils/API"
+import DB from '../../utils/IndexedDB'
 
 function SingleProduct() {
 
+    const addtocart = (product) => {
+        console.log("cart button pressed!")
+        DB.addToCart(product)
+      };
+
+    const { id } = useParams();
+    const [product, setProduct] = useState({});
     const styles = {
 
         containerStyle: {
@@ -16,24 +26,32 @@ function SingleProduct() {
 
     };
 
+    useEffect(() => {
+        API.getProduct(id)
+          .then((res) => {
+              console.log(res.data)
+            setProduct(res.data);
+          })
+          .catch((err) => console.log(err));
+      }, []);
+
 
     return (
         <Container style={styles.containerStyle}>
             <Row>
                 <Col sm={1}></Col>
                 <Card style={{ width: '20rem' }}>
-                    <Card.Img variant="top" src="./images/logo192.png" />
+                    <Card.Img variant="top" src={product.image} />
                 </Card>
                 <Col sm={1}></Col>
                 <Card style={{ width: '20rem' }}>
                     <Card.Body>
-                        <Card.Title>Price</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Product Description</Card.Subtitle>
+                        <Card.Title>{product.name}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">${product.price}.00</Card.Subtitle>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                            {product.description}
                         </Card.Text>
-                        <Card.Link href="#">Add to Cart</Card.Link>
+                        <Button onClick={()=>addtocart(product)}>Add to Cart</Button>
                     </Card.Body>
                 </Card>
             </Row>
