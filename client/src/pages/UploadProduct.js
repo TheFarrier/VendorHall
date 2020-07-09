@@ -1,9 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import API from '../utils/API';
 import { useAuth0 } from '../react-auth0-spa';
+import { Form, Button, Container } from "react-bootstrap";
 
 function StorePage() {
-  // Initialize books as an empty array
+
+  const styles = {
+
+    containerStyle: {
+      border: '.03rem solid',
+      borderColor: 'lightblue',
+      width: '65rem',
+      height: '35rem',
+      float: 'center',
+      padding: '5px',
+      fontFamily: 'Georgia'
+    }
+
+  };
+
+  const mystyle = {
+
+    fontFamily: 'Georgia',
+    float: 'center'
+  }
+  
+
   const [formObject, setFormObject] = useState({});
   const [userData, setUserData] = useState({});
 
@@ -47,13 +69,16 @@ function StorePage() {
 
   return (
     <div>
-      <h2>Upload a product listing</h2>
-      <form onSubmit={handleFormSubmit}>
+
+      
+      <Container style={styles.containerStyle}>
+      <h2 style={mystyle}>Upload a product listing</h2>
+      <Form onSubmit={handleFormSubmit}>
         <div className="form-group">
           <input className="form-control" onChange={handleInputChange} name="name" placeholder="name" />
         </div>
         <div className="form-group">
-          <textarea className="form-control" rows="20" onChange={handleInputChange} name="description" placeholder="description" />
+          <textarea className="form-control" rows="5" onChange={handleInputChange} name="description" placeholder="description" />
         </div>
         <div className="form-group">
           -
@@ -66,11 +91,13 @@ function StorePage() {
         <div className="form-group">
           <input className="form-control" onChange={handleInputChange} name="image" placeholder="image url" />
         </div>
-        <button onClick={handleFormSubmit} style={{ float: 'right', marginBottom: 10 }} className="btn btn-success">
+        <Button type="submit" style={{ float: 'right', marginBottom: 10 }} className="btn btn-success">
           Submit
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Form>
+      </Container>
+      </div>
+
   );
 }
 
