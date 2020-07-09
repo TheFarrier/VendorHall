@@ -8,7 +8,7 @@ import { useParams, Redirect } from "react-router-dom";
 
 function Vendor() {
 
-
+  const [registered, setRegistered] = useState(false)
   const [newVendor, setVendor] = useState({})
   const { user } = useAuth0();
   const { id } = useParams();
@@ -25,7 +25,9 @@ function Vendor() {
 
 
   const handleClick =  () => {
-    API.createUser(newVendor)
+    API.createUser(newVendor).then(
+      setRegistered(true)
+    )
   }
 
   const handleInputChange = event => {
@@ -37,8 +39,9 @@ function Vendor() {
 
   return (
     <Row>
-      <h2>Finish setting up your store</h2>
+     
       <Form onSubmit={handleClick} border="primary" style={{ width: '50rem' }}>
+      <h2>Finish setting up your store</h2>
         <Form.Row>
           <Form.Group as={Col} md={{ span: 3, offset: 3 }}>
             <input 
@@ -78,8 +81,9 @@ function Vendor() {
         <Form.Row >
           <Button onClick={handleClick} as={Col} md={{ span: 4, offset: 3 }}>Submit form</Button>
         </Form.Row>
+        {registered ? <h2 style={{color: "green"}}>Vendor Registered!</h2> : null}
       </Form>
-      <RegisterStripe />
+      
     </Row>
   );
 }
