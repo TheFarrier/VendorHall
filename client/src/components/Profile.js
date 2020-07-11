@@ -32,10 +32,6 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  
-
-  
-
   return (
 
     <Container style={styles.containerStyle}>
