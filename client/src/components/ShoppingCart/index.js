@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Card, Dropdown} from 'react-bootstrap';
 import './style.css';
 import Checkout from '../Checkout';
-import CartCard from './CartCard'
+import CartCard from './CartCard';
+import DropDownItems from './DropDownItems';
 
 function ShoppingCart() {
+
   const [products, setProducts] = useState([{}])
 
   useEffect(() => {
@@ -34,25 +36,12 @@ function ShoppingCart() {
     } 
   }, [])
 
-
   return (
     <Dropdown>
       <Dropdown.Toggle>
         <i className="fa fa-shopping-cart" aria-hidden="true" /> {/*Shopping cart icon*/}
       </Dropdown.Toggle>
-      <Dropdown.Menu alignRight>
-        <Dropdown.Header>Shopping Cart</Dropdown.Header>
-          {products.map((product, index) => {
-            return(
-              <Dropdown.Item>
-                <Card className="cart-item">
-                  <CartCard p={product} i={index} />
-                </Card>
-              </Dropdown.Item>
-            )
-          })}
-        <Checkout />
-      </Dropdown.Menu>
+      <DropDownItems products={products}/>
     </Dropdown>
   );
 }
