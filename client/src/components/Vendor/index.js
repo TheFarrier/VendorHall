@@ -23,7 +23,6 @@ function Vendor() {
     }) 
   }, []);
 
-
   const handleClick =  () => {
     API.createUser(newVendor).then(
       setRegistered(true)
@@ -39,7 +38,7 @@ function Vendor() {
 
   return (
     <Row>
-     
+      {registered && <Redirect to="/profile" />}
       <Form onSubmit={handleClick} border="primary" style={{ width: '50rem' }}>
       <h2>Finish setting up your store</h2>
         <Form.Row>

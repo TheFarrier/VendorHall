@@ -39,7 +39,6 @@ function App() {
         <Sidebar />
         <Switch>
           <Route path="/" exact component={AllStores} />
-          <Route path="/profile" component={Profile} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/vendor/:id" component={Vendor} />
           <Route exact path="/user/products/:id">

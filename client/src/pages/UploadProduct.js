@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import API from '../utils/API';
 import { useAuth0 } from '../react-auth0-spa';
 import { Form, Button, Container } from "react-bootstrap";
+import { Redirect } from 'react-router-dom';
 
 function StorePage() {
 
@@ -25,7 +26,7 @@ function StorePage() {
     float: 'center'
   }
   
-
+  const [created, setCreated] = useState(false)
   const [formObject, setFormObject] = useState({});
   const [userData, setUserData] = useState({});
 
@@ -62,7 +63,10 @@ function StorePage() {
         quantity: formObject.quantity,
         image: formObject.image,
         vendor: userData._id,
-      }).then((res) => API.updateUser(res.data))
+      }).then((res) => {
+        API.updateUser(res.data);
+        setCreated(true);
+      })
         .catch((err) => console.log(err));
     }
   }
@@ -70,7 +74,7 @@ function StorePage() {
   return (
     <div>
 
-      
+      {created && <Redirect to={`/vendor/${userData._id}`}/>}
       <Container style={styles.containerStyle}>
       <h2 style={mystyle}>Upload a product listing</h2>
       <Form onSubmit={handleFormSubmit}>
