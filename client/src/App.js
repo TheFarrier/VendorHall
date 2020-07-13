@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import StorePage from './pages/StorePage';
 import AllStores from './pages/AllStores';
@@ -18,42 +18,61 @@ import Breadcrumbs from './components/Breadcrumb/Breadcrumbs';
 //The RB css import code
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SingleProduct from './components/SingleProduct';
+import CartContext from './utils/cartContext';
+import DB from './utils/IndexedDB'
 
 
 function App() {
   const { loading } = useAuth0();
+  const [cart, setCart] = useState([{
+    listID: "",
+    image: "",
+    name: "",
+    price: 0,
+    quantity: 0
+  }]);
+
+  function addToCart (product) {DB.addToCart(product).then((res)=>{setCart(res)})}
+  function removeFromCart (product) {DB.removeFromCart(product)}
+  function getCart (){
+    DB.openDB.then((res) => {
+      setCart(res)
+    });
+  }
 
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
     <div className="App">
-      {/* Don't forget to include the history module */}
-      <Router history={history}>
-        <header>
-          <NavBar />
-          <Breadcrumbs />
-         
-        </header>
-        <Sidebar />
-        <Switch>
-          <Route path="/" exact component={AllStores} />
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/vendor/:id" component={Vendor} />
-          <Route exact path="/user/products/:id">
-            <StorePage />
-          </Route>
-          <Route exact path="/upload">
-            <UploadProducts />
-          </Route>
-          <Route exact path="/products">
-            <AllStores />
-          </Route>
-          <Route path="/product/:id" component={SingleProduct} />
-        </Switch>
-        <PrivateRoute path="/profile" component={Profile} />
-        
-      </Router>
+      <CartContext.Provider value={{cart, addToCart, removeFromCart, getCart}}>
+        <Router history={history}>
+          <header>
+            <NavBar />
+            <Breadcrumbs />
+          
+          </header>
+          <Sidebar />
+          <Switch>
+            <Route path="/" exact component={AllStores} />
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/vendor/:id" component={Vendor} />
+            <Route exact path="/user/products/:id">
+              <StorePage />
+            </Route>
+            <Route exact path="/upload">
+              <UploadProducts />
+            </Route>
+            <Route exact path="/products">
+              <AllStores />
+            </Route>
+            <Route path="/product/:id" component={SingleProduct} />
+          </Switch>
+          <PrivateRoute path="/profile" component={Profile} />
+          
+        </Router>
+      </CartContext.Provider>
+      
       <Footer />
     </div>
   );

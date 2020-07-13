@@ -4,7 +4,16 @@ div {
   overflow: hidden;
 }
 
-  .card {
+.card {
     border: 1px solid;
     border-color: mediumseagreen;
+}
+
+.singleProductContainer {
+  border: '.02rem solid';
+  border-color: 'MediumSeaGreen';
+  width: '65rem';
+  height: '30rem';
+  padding: '15px';
+  float: 'center'
 }

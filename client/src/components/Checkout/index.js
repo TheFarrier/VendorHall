@@ -7,8 +7,7 @@ import {loadStripe} from '@stripe/stripe-js';
 
 function Checkout() {
 
-  let [cart, setCart] = useState([{}])
-  const [sessionId, setID] = useState('')
+  let [cart, setCart] =useState([{}])
   const stripePromise = loadStripe('pk_test_51GyhD6JxF3l7n3KAqKpEW0eD1002yA5Su9f1LOMx5MR4V0c0oUEP8Lo5e2uFBgOktYuJSNfrRIlUhPRb1lMcTEtp00C8W3Zb9e');
 
   useEffect(() => {
@@ -33,8 +32,7 @@ function Checkout() {
       // Adds data to our objectStore
       const getRequest = shoppingCartStore.getAll()
       getRequest.onsuccess = ()=> {
-        setCart(getRequest.result)
-        startSession();
+        cart = getRequest.result
       }
     } 
   }, [])
@@ -54,19 +52,19 @@ function Checkout() {
     })
     API.createSession(cart)
     .then((res) => {
-      setID(res.data.session_id)
+      checkout(res.data.session_id)
     })
     .catch((err) => console.log(err));
   }
 
-  const checkout = async (event) => {
+  const checkout = async (sessionId) => {
     const stripe = await stripePromise
     await console.log(sessionId)
     const { error } = await stripe.redirectToCheckout({sessionId});
   }
   
   return (
-    <Button onClick={checkout}>Checkout</Button>
+    <Button onClick={startSession}>Checkout</Button>
   );
 }
 

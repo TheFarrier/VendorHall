@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import API from '../utils/API';
 import { useAuth0 } from '../react-auth0-spa';
 import { Form, Button, Container } from "react-bootstrap";
+import { Redirect } from 'react-router-dom';
 
 function StorePage() {
 
@@ -9,7 +10,7 @@ function StorePage() {
 
     containerStyle: {
       border: '.03rem solid',
-      borderColor: 'MediumSeaGreen',
+      borderColor: 'lightblue',
       width: '65rem',
       height: '35rem',
       float: 'center',
@@ -25,7 +26,7 @@ function StorePage() {
     float: 'center'
   }
   
-
+  const [created, setCreated] = useState(false)
   const [formObject, setFormObject] = useState({});
   const [userData, setUserData] = useState({});
 
@@ -62,42 +63,43 @@ function StorePage() {
         quantity: formObject.quantity,
         image: formObject.image,
         vendor: userData._id,
-      }).then((res) => API.updateUser(res.data))
+      }).then((res) => {
+        API.updateUser(res.data);
+        setCreated(true);
+      })
         .catch((err) => console.log(err));
     }
   }
 
   return (
     <div>
-
-      
+      {created && <Redirect to={`/vendor/${userData._id}`}/>}
       <Container style={styles.containerStyle}>
-      <h2 style={mystyle}>Upload a product listing</h2>
-      <Form onSubmit={handleFormSubmit}>
-        <div className="form-group">
-          <input className="form-control" onChange={handleInputChange} name="name" placeholder="name" />
-        </div>
-        <div className="form-group">
-          <textarea className="form-control" rows="5" onChange={handleInputChange} name="description" placeholder="description" />
-        </div>
-        <div className="form-group">
-          -
-          <input className="form-control" onChange={handleInputChange} name="price" placeholder="price" />
-        </div>
-        <div className="form-group">
-          -
-          <input className="form-control" onChange={handleInputChange} name="quantity" placeholder="quantity (optional)" />
-        </div>
-        <div className="form-group">
-          <input className="form-control" onChange={handleInputChange} name="image" placeholder="image url" />
-        </div>
-        <Button type="submit" style={{ float: 'right', marginBottom: 10 }} className="btn btn-success">
-          Submit
-        </Button>
-      </Form>
+        <h2 style={mystyle}>Upload a product listing</h2>
+        <Form onSubmit={handleFormSubmit}>
+          <div className="form-group">
+            <input className="form-control" onChange={handleInputChange} name="name" placeholder="name" />
+          </div>
+          <div className="form-group">
+            <textarea className="form-control" rows="5" onChange={handleInputChange} name="description" placeholder="description" />
+          </div>
+          <div className="form-group">
+            -
+            <input className="form-control" onChange={handleInputChange} name="price" placeholder="price" />
+          </div>
+          <div className="form-group">
+            -
+            <input className="form-control" onChange={handleInputChange} name="quantity" placeholder="quantity (optional)" />
+          </div>
+          <div className="form-group">
+            <input className="form-control" onChange={handleInputChange} name="image" placeholder="image url" />
+          </div>
+          <Button type="submit" style={{ float: 'right', marginBottom: 10 }} className="btn btn-success">
+            Submit
+          </Button>
+        </Form>
       </Container>
-      </div>
-
+    </div>
   );
 }
 
