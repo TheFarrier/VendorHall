@@ -12,5 +12,8 @@ router.route('/:id')
   .put(productController.updateProduct)
   .delete(productController.removeProduct);
 
+router.route('/search')
+  .post(productController.searchProducts);
+
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import { Form, Button, Col } from 'react-bootstrap';
+import { Form, Button, Col, Row } from 'react-bootstrap';
 import React, { useState, useEffect, Redirect } from 'react';
 import { useAuth0 } from '../../react-auth0-spa';
 import './style.css';

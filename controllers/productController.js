@@ -15,10 +15,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   searchProducts: function(req, res) {
+    console.log(req.body)
     db.Products
       .find({$or:[
-        {name:{$regex: req.body, $options: 'i'}},
-        {description:{$regex: req.body, $options: 'i'}}
+        {name:{$regex: req.body.q, $options: 'i'}},
+        {description:{$regex: req.body.q, $options: 'i'}}
       ]})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
