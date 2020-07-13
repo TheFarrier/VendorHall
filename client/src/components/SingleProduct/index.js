@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Card, Row, Col, Container, Button } from "react-bootstrap";
-import API from "../../utils/API"
+import { Card, Row, Col, Container, Button } from 'react-bootstrap';
+import API from '../../utils/API'
 import DB from '../../utils/IndexedDB'
 
 function SingleProduct() {
@@ -13,18 +13,16 @@ function SingleProduct() {
 
     const { id } = useParams();
     const [product, setProduct] = useState({});
-    const styles = {
 
-        containerStyle: {
-            border: '.02rem solid',
-            borderColor: 'gray',
-            width: '65rem',
-            height: '30rem',
-            padding: '15px',
-            float: 'center'
-        }
+    useEffect(() => {
+        API.getProduct(id)
+          .then((res) => {
+              console.log(res.data)
+            setProduct(res.data);
+          })
+          .catch((err) => console.log(err));
+      }, []);
 
-    };
 
     useEffect(() => {
         API.getProduct(id)
@@ -37,7 +35,7 @@ function SingleProduct() {
 
 
     return (
-        <Container style={styles.containerStyle}>
+        <Container className="singleProductContainer">
             <Row>
                 <Col sm={1}></Col>
                 <Card style={{ width: '20rem' }}>
@@ -56,7 +54,6 @@ function SingleProduct() {
                 </Card>
             </Row>
         </Container>
-
     )
 };
 

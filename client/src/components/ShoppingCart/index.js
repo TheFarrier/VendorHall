@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Card, Dropdown} from 'react-bootstrap';
 import './style.css';
 import Checkout from '../Checkout';
 import CartCard from './CartCard';
-import DropDownItems from './DropDownItems';
 import cartContext from '../../utils/cartContext'
 
 function ShoppingCart() {
 
-  const {cart, addToCart, removeFromCart, getCart} = useContext(cartContext);
+  const {cart, removeFromCart, getCart} = useContext(cartContext);
 
   useEffect(() => {
     getCart()
@@ -17,7 +16,7 @@ function ShoppingCart() {
   return (
     <Dropdown>
       <Dropdown.Toggle>
-        <i className="fa fa-shopping-cart" aria-hidden="true" /> {/*Shopping cart icon*/}
+        <i className="fa fa-shopping-cart" aria-hidden="true" />
       </Dropdown.Toggle>
       <Dropdown.Menu alignRight>
       <Dropdown.Header>Shopping Cart</Dropdown.Header>

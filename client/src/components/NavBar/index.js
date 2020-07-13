@@ -42,22 +42,23 @@ const NavBar = () => {
           <span>
             <Dropdown style={styles.dropdownStyle}>
               <Dropdown.Toggle className="justify-content-end" variant="light" id="dropdown-basic">
-                <i class="fas fa-user fa-lg"></i>
+                <i className="fas fa-user fa-lg"></i>
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">
+                <Dropdown.Item>
                   <Link to="/">Home</Link>&nbsp;
-              </Dropdown.Item>
-                <Dropdown.Item href="#/action-2">
+                </Dropdown.Item>
+                {!isAuthenticated && <Dropdown.Item href="#/action-1"><button onClick={() => loginWithRedirect()}>  Log in</button></Dropdown.Item>}
+                <Dropdown.Item>
                   <Link to="/profile">  Profile</Link>
                 </Dropdown.Item>
-                <Dropdown.Item href="#/action-3">
+                <Dropdown.Item>
                   <RegisterStripe />
                 </Dropdown.Item>
-                <Dropdown.Item href="#/action-3">
+                <Dropdown.Item >
                   <Link to="/upload">Upload a Product</Link>
                 </Dropdown.Item>
-                <Dropdown.Item href="#/action-4">
+                <Dropdown.Item>
                   {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}
                 </Dropdown.Item>
               </Dropdown.Menu>

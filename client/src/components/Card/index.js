@@ -1,17 +1,11 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './style.css';
-import DB from '../../utils/IndexedDB'
 import CartContext from '../../utils/cartContext';
 
-const addtocart = (product) => {
-  console.log("cart button pressed!")
-  DB.addToCart(product)
-};
-
 function Productcard({ p, i }) {
-  const {cart, addToCart, removeFromCart, getCart} = useContext(CartContext);
+  const {addToCart} = useContext(CartContext);
 
   function handleClick (){
     console.log("Adding " + p.name + " to cart")
@@ -36,10 +30,8 @@ function Productcard({ p, i }) {
           <p><Link to={`/user/products/${p.vendor._id}`}>{p.vendor.name}</Link></p>
           <Button onClick={handleClick}>Add to Cart</Button>
         </Card.Footer>
-        
       </Card>
     </section>
-
   );
 }
 
