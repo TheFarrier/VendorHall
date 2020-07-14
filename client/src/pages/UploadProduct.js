@@ -73,7 +73,7 @@ function StorePage() {
 
   return (
     <div>
-      {created && <Redirect to={`/vendor/${userData._id}`}/>}
+      {created && <Redirect to={`/user/products/${userData._id}`}/>}
       <Container style={styles.containerStyle}>
         <h2 style={mystyle}>Upload a product listing</h2>
         <Form onSubmit={handleFormSubmit}>
