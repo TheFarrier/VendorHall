@@ -1,9 +1,9 @@
 import { Form, Button, Col, Row } from 'react-bootstrap';
-import React, { useState, useEffect, Redirect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useAuth0 } from '../../react-auth0-spa';
 import './style.css';
 import API from '../../utils/API'
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import './style.css';
 
 
@@ -39,7 +39,7 @@ function Vendor() {
 
   return (
     <Row>
-      {registered && <Redirect to="/profile" />}
+      {registered && <Redirect to={"/profile"}/>}
       <Form onSubmit={handleClick} border="primary" style={{ width: '50rem' }}>
       <h2>Finish setting up your store</h2>
         <Form.Row>
@@ -81,7 +81,6 @@ function Vendor() {
         <Form.Row >
           <Button onClick={handleClick} as={Col} md={{ span: 4, offset: 3 }}>Submit form</Button>
         </Form.Row>
-        {registered ? <h2 style={{color: "green"}}>Vendor Registered!</h2> : null}
       </Form>
     </Row>
   );
