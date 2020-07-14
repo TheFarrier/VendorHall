@@ -59,19 +59,11 @@ const NavBar = (props) => {
                 <i className="fas fa-user fa-lg"></i>
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item>
-                  <Link to="/">Home</Link>&nbsp;
-                </Dropdown.Item>
+                <Dropdown.Item href="/">Home</Dropdown.Item>
                 {!isAuthenticated && <Dropdown.Item href="#/action-1"><button onClick={() => loginWithRedirect()}>  Log in</button></Dropdown.Item>}
-                <Dropdown.Item>
-                  <Link to="/profile">  Profile</Link>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <RegisterStripe />
-                </Dropdown.Item>
-                <Dropdown.Item >
-                  <Link to="/upload">Upload a Product</Link>
-                </Dropdown.Item>
+                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                <RegisterStripe />
+                <Dropdown.Item href="/upload">Upload a Product</Dropdown.Item>
                 <Dropdown.Item>
                   {isAuthenticated && <button onClick={() => logout()}>  Log out</button>}
                 </Dropdown.Item>
