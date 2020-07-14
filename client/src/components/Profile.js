@@ -41,7 +41,7 @@ const Profile = () => {
         <img src={user.picture} alt="Profile" />
         <h2>{user.name}</h2>
         <p>Registered Email: {user.email}</p>
-        <p>Vendor Name: {vendor.name}</p>
+        {vendor && <p>Vendor Name: {vendor.name}</p>}
         {/* <code>{JSON.stringify(user, null, 2)}</code>   */}
       </Fragment>
     </Container>
