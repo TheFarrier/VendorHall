@@ -5,16 +5,18 @@ import { useAuth0 } from '../react-auth0-spa';
 import { Container } from 'react-bootstrap';
 import API from '../utils/API';
 
+
 const Profile = () => {
 
   const styles = {
 
     containerStyle: {
         border: '.02rem solid',
-        borderColor: 'gray',
+        borderColor: 'MediumSeaGreen',
         width: '65rem',
         height: '25rem',
         float: 'center',
+        padding: '5px'
     }
 
 };
@@ -35,14 +37,13 @@ const Profile = () => {
   return (
 
     <Container style={styles.containerStyle}>
-    <Fragment>
-      <img src={user.picture} alt="Profile" />
-      <h2>{user.name}</h2>
-      <p>Registered Email: {user.email}</p>
-      <p>Vendor Name: {vendor.name}</p>
-      {/* <code>{JSON.stringify(user, null, 2)}</code>   */}
-
-    </Fragment>
+      <Fragment>
+        <img src={user.picture} alt="Profile" />
+        <h2>{user.name}</h2>
+        <p>Registered Email: {user.email}</p>
+        <p>Vendor Name: {vendor.name}</p>
+        {/* <code>{JSON.stringify(user, null, 2)}</code>   */}
+      </Fragment>
     </Container>
   );
 };

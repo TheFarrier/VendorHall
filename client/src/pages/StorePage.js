@@ -5,9 +5,8 @@ import API from '../utils/API';
 import Card from '../components/Card';
 
 function StorePage() {
-  // Initialize books as an empty array
   const [store, setStore] = useState([]);
-  // const [products, setProducts] = useState([])
+
 
   const { id } = useParams();
 
@@ -23,7 +22,7 @@ function StorePage() {
     <div>
       <Row>
         {store.map((product, index) => 
-          <Card p={product} i={index} />
+          <Card p={product} key={index} />
           )}
       </Row>
     </div>

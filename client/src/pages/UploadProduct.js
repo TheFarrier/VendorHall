@@ -73,35 +73,33 @@ function StorePage() {
 
   return (
     <div>
-
       {created && <Redirect to={`/vendor/${userData._id}`}/>}
       <Container style={styles.containerStyle}>
-      <h2 style={mystyle}>Upload a product listing</h2>
-      <Form onSubmit={handleFormSubmit}>
-        <div className="form-group">
-          <input className="form-control" onChange={handleInputChange} name="name" placeholder="name" />
-        </div>
-        <div className="form-group">
-          <textarea className="form-control" rows="5" onChange={handleInputChange} name="description" placeholder="description" />
-        </div>
-        <div className="form-group">
-          -
-          <input className="form-control" onChange={handleInputChange} name="price" placeholder="price" />
-        </div>
-        <div className="form-group">
-          -
-          <input className="form-control" onChange={handleInputChange} name="quantity" placeholder="quantity (optional)" />
-        </div>
-        <div className="form-group">
-          <input className="form-control" onChange={handleInputChange} name="image" placeholder="image url" />
-        </div>
-        <Button type="submit" style={{ float: 'right', marginBottom: 10 }} className="btn btn-success">
-          Submit
-        </Button>
-      </Form>
+        <h2 style={mystyle}>Upload a product listing</h2>
+        <Form onSubmit={handleFormSubmit}>
+          <div className="form-group">
+            <input className="form-control" onChange={handleInputChange} name="name" placeholder="name" />
+          </div>
+          <div className="form-group">
+            <textarea className="form-control" rows="5" onChange={handleInputChange} name="description" placeholder="description" />
+          </div>
+          <div className="form-group">
+            -
+            <input className="form-control" onChange={handleInputChange} name="price" placeholder="price" />
+          </div>
+          <div className="form-group">
+            -
+            <input className="form-control" onChange={handleInputChange} name="quantity" placeholder="quantity (optional)" />
+          </div>
+          <div className="form-group">
+            <input className="form-control" onChange={handleInputChange} name="image" placeholder="image url" />
+          </div>
+          <Button type="submit" style={{ float: 'right', marginBottom: 10 }} className="btn btn-success">
+            Submit
+          </Button>
+        </Form>
       </Container>
-      </div>
-
+    </div>
   );
 }
 

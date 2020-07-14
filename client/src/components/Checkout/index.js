@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import './style.css';
 import API from '../../utils/API'
-import DB from '../../utils/IndexedDB'
 import {loadStripe} from '@stripe/stripe-js';
 
 

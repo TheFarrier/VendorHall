@@ -8,9 +8,10 @@ function Sidebar() {
 
     containerStyle: {
       border: '.02rem solid',
-      borderColor: 'blue',
-      width: '12rem',
-      float: 'left'
+      borderColor: 'MediumSeaGreen',
+      width: '10rem',
+      float: 'left',
+      
     }
 
   };

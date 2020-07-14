@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button, Col, Row } from "react-bootstrap";
+import { Form, Button, Col, Row } from 'react-bootstrap';
+import React, { useState, useEffect, Redirect } from 'react';
 import { useAuth0 } from '../../react-auth0-spa';
 import './style.css';
-import RegisterStripe from "../RegisterStripe"
 import API from '../../utils/API'
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import './style.css';
+
 
 function Vendor() {
 
@@ -82,11 +83,8 @@ function Vendor() {
         </Form.Row>
         {registered ? <h2 style={{color: "green"}}>Vendor Registered!</h2> : null}
       </Form>
-      
     </Row>
   );
 }
 
 export default Vendor;
-
-

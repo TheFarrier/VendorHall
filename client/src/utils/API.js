@@ -22,6 +22,10 @@ export default {
   getAllProducts() {
     return axios.get('/api/products');
   },
+  // Search for prodcuts
+  searchProducts(searchParams) {
+    return axios.post('/api/products/search', searchParams);
+  },
   // Gets the stores with the given id
   createProduct(productData) {
     return axios.post('/api/products/', productData);

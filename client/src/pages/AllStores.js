@@ -1,17 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Row } from 'react-bootstrap';
 import API from '../utils/API';
 import Card from '../components/Card';
+import QString from 'query-string';
+import SearchContext from '../utils/searchContext';
 
-function StorePage() {
+function StorePage(props) {
   // Initialize books as an empty array
   const [products, setProducts] = useState([]);
+  const {search, setSearch} = useContext(SearchContext)
 
   useEffect(() => {
-    API.getAllProducts()
+    if(search){
+      const body = {
+        q:search
+      }
+      API.searchProducts(body)
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.log(err))
+    } else if(props.location.search){
+      const params = QString.parse(props.location.search);
+      API.searchProducts(params)
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.log(err))
+    }else{
+      API.getAllProducts()
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
-  }, []);
+    }
+  }, [search]);
 
   return (
     <div>
