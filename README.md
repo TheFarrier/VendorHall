@@ -7,5 +7,5 @@ Vendorhall uses Auth0 https://auth0.com/ to authenticate users before allowing t
 Test Mode
 
 Vendorhall is currently running in test mode. Stripe integrations will not ask for or store personal information, but creating an account can be simulated by completing the forms with prefilled test info. Similarly, a checkout session can be simulated with credit card number 4242 4242 4242 4242 and any valid expiration date and postal code.
-Users who make a test account through the "Become a Vendor" option, and complete teh stripe express acconut creation will be able to name their store and upload products.
+Users who make a test account through the "Become a Vendor" option, and complete the stripe express account creation will be able to name their store and upload products.
 Vendorhall does not currently support image hosting, so images for products will need to be submited by url on a separate hosting site.
