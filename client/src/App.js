@@ -21,6 +21,7 @@ import SingleProduct from './components/SingleProduct';
 import CartContext from './utils/cartContext';
 import DB from './utils/IndexedDB'
 import SearchContext from './utils/searchContext';
+import Reciept from './pages/Reciept';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
             <Switch>
               <Route path="/" exact component={AllStores} />
               <Route path="/checkout" component={Checkout} />
+              <Route path="/order" component={Reciept} />
               <Route path="/vendor/:id" component={Vendor} />
               <Route exact path="/user/products/:id">
                 <StorePage />
