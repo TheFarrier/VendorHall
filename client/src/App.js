@@ -22,11 +22,14 @@ import CartContext from './utils/cartContext';
 import DB from './utils/IndexedDB'
 import SearchContext from './utils/searchContext';
 import Reciept from './pages/Reciept';
+import FilterContext from './utils/filterContext';
 
 
 function App() {
   const { loading } = useAuth0();
   const [search, setSearch] = useState("")
+  const [tagFilter, setTagFilter] = useState("")
+  const [priceFilter, setPriceFilter] = useState([])
   const [cart, setCart] = useState([{
     listID: "",
     image: "",
@@ -50,31 +53,33 @@ function App() {
     <div className="App">
       <CartContext.Provider value={{cart, addToCart, removeFromCart, getCart}}>
         <SearchContext.Provider value ={{search, setSearch}}>
-          <Router history={history}>
-            <header>
-              <NavBar />
-              <Breadcrumbs />
-            </header>
-            <Sidebar />
-            <Switch>
-              <Route path="/" exact component={AllStores} />
-              <Route path="/checkout" component={Checkout} />
-              <Route path="/order" component={Reciept} />
-              <Route path="/vendor/:id" component={Vendor} />
-              <Route exact path="/user/products/:id">
-                <StorePage />
-              </Route>
-              <Route exact path="/upload">
-                <UploadProducts />
-              </Route>
-              <Route exact path="/products">
-                <AllStores />
-              </Route>
-              <Route path="/product/:id" component={SingleProduct} />
-            </Switch>
-            <PrivateRoute path="/profile" component={Profile} />
-            
-          </Router>
+          <FilterContext.Provider value ={{tagFilter, priceFilter, setTagFilter, setPriceFilter}}>
+            <Router history={history}>
+              <header>
+                <NavBar />
+                <Breadcrumbs />
+              </header>
+              <Sidebar />
+              <Switch>
+                <Route path="/" exact component={AllStores} />
+                <Route path="/checkout" component={Checkout} />
+                <Route path="/order" component={Reciept} />
+                <Route path="/vendor/:id" component={Vendor} />
+                <Route exact path="/user/products/:id">
+                  <StorePage />
+                </Route>
+                <Route exact path="/upload">
+                  <UploadProducts />
+                </Route>
+                <Route exact path="/products">
+                  <AllStores />
+                </Route>
+                <Route path="/product/:id" component={SingleProduct} />
+              </Switch>
+              <PrivateRoute path="/profile" component={Profile} />
+              
+            </Router>
+          </FilterContext.Provider>
         </SearchContext.Provider>
       </CartContext.Provider>
       

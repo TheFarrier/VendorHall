@@ -4,11 +4,13 @@ import API from '../utils/API';
 import Card from '../components/Card';
 import QString from 'query-string';
 import SearchContext from '../utils/searchContext';
+import FilterContext from '../utils/filterContext';
 
 function StorePage(props) {
   // Initialize books as an empty array
   const [products, setProducts] = useState([]);
   const {search, setSearch} = useContext(SearchContext)
+  const {tagFilter, priceFilter, setFilter} = useContext(FilterContext)
 
   useEffect(() => {
     if(search){
@@ -29,6 +31,19 @@ function StorePage(props) {
       .catch((err) => console.log(err));
     }
   }, [search]);
+
+  useEffect(() =>{
+    if(tagFilter){
+      setProducts(products.filter((product)=>{
+        return product.tag == tagFilter
+      }))
+    }
+    if(priceFilter){
+      setProducts(products.filter((product)=>{
+        return product.price <= priceFilter[0] && product.price >= priceFilter[1]
+      }))
+    }
+  },[tagFilter, priceFilter])
 
   return (
     <div>
