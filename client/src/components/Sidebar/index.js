@@ -23,28 +23,50 @@ function Sidebar() {
         <h1>Filter Products</h1>
         <Dropdown>
           <Dropdown.Toggle variant="light" id="dropdown-basic">
-            Price
-        </Dropdown.Toggle>
+            Category
+          </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Under $25</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">$25 to $50</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">$50 to $75</Dropdown.Item>
-            <Dropdown.Item href="#/action-4">$100 and Up</Dropdown.Item>
+          {['Clothing', 'Accessories', 'Leatherwork', 'Writing', 'Toys and Games'].map((type) => (
+              <div className='checkbox-item'>
+                <Form.Check 
+                type='checkbox'
+                id={`default-${type}`}
+                label={`${type}`}
+              />
+              </div>
+          ))}
+          </Dropdown.Menu>
+        </Dropdown>
+        <Dropdown>
+          <Dropdown.Toggle variant="light" id="dropdown-basic">
+            Price
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+          {['Under $25', '$25 to $50', '$50 to $75', '$100 and Up'].map((type) => (
+              <div className='checkbox-item'>
+                <Form.Check 
+                type='checkbox'
+                id={`default-${type}`}
+                label={`${type}`}
+              />
+              </div>
+          ))}
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown>
           <Dropdown.Toggle variant="light" id="dropdown-basic">
             Color
-        </Dropdown.Toggle>
+          </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Black</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Blue</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Brown</Dropdown.Item>
-            <Dropdown.Item href="#/action-4">Green</Dropdown.Item>
-            <Dropdown.Item href="#/action-5">Orange</Dropdown.Item>
-            <Dropdown.Item href="#/action-6">Purple</Dropdown.Item>
-            <Dropdown.Item href="#/action-7">Red</Dropdown.Item>
-            <Dropdown.Item href="#/action-8">Yellow</Dropdown.Item>
+          {['Black', 'Blue', 'Brown', 'Green', 'Orange', 'Purple', 'Red', 'Yellow'].map((type) => (
+              <div className='checkbox-item'>
+                <Form.Check 
+                type='checkbox'
+                id={`default-${type}`}
+                label={`${type}`}
+              />
+              </div>
+          ))}
           </Dropdown.Menu>
         </Dropdown>
       </ButtonGroup>

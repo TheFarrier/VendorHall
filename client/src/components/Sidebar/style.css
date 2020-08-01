@@ -2,3 +2,8 @@ h1 {
     font-family: Georgia;
     font-size: 10px;
 }
+
+.checkbox-item {
+    align-content: center;
+    margin: 5px 10px;
+}
