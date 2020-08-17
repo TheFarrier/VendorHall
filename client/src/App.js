@@ -28,7 +28,7 @@ import FilterContext from './utils/filterContext';
 function App() {
   const { loading } = useAuth0();
   const [search, setSearch] = useState("")
-  const [tagFilter, setTagFilter] = useState("")
+  const [tagFilter, setTagFilter] = useState([])
   const [priceFilter, setPriceFilter] = useState([])
   const [cart, setCart] = useState([{
     listID: "",

@@ -58,13 +58,6 @@ class CheckboxLabels extends React.Component {
           }
           label="Price: High - Low"
         />
-        {/* <FormControlLabel control={<Checkbox value="checkedC" />} label="Uncontrolled" />
-        <FormControlLabel disabled control={<Checkbox value="checkedD" />} label="Disabled" />
-        <FormControlLabel
-          disabled
-          control={<Checkbox checked value="checkedE" />}
-          label="Ages: 0 - 5"
-        /> */}
         <FormControlLabel
           control={
             <Checkbox
