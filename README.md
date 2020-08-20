@@ -18,3 +18,14 @@ Users who make a test account through the "Become a Vendor" option, and complete
 
 Sensitive user data is handled entirely by our 3rd-party APIs Auth0 and Stripe. Vendorhall's database only stores the neccessary data to link vendors' Auth0 and Stripe accounts, as well product data submitted by vendors.
 
+# Technologies Used
+
+React, JSX, with React-Bootstrap frontend
+
+Axios for API call handling
+
+Express, Mongoose/MongoDB backend (Currently using mLabs, but will be migrated)
+
+Stripe-js for handling payments
+
+Auth0 for handling login and user authentication
