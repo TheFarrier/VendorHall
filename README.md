@@ -4,6 +4,10 @@ Vendorhall is an ecommerce product hosting site where users can post products fo
 
 Vendorhall uses Auth0 https://auth0.com/ to authenticate users before allowing them access to the site. Payments and the creation of a store account are handled by Stripe https://stripe.com/.
 
+After logging in, users can browse products for purchase from registereed vendors, or choose to become a vendor themselves and upload products. These options can be found in by clicking the user dropdown icon.
+
+![Stripe Checkout](https://i.gyazo.com/a6b8e22a54c7c2534ffc33b6574296ad.png)
+
 # Test Mode
 
 Vendorhall is currently running in test mode. Stripe integrations will not ask for or store personal information, but creating an account can be simulated by completing the forms with prefilled test info. 
